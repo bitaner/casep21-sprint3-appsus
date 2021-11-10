@@ -7,7 +7,7 @@ export default {
             <option value="all">ALL</option>
             <option value="read">Read</option>
             <option value="unread">Unread</option>
-            <option value="unread">Stared</option>
+            <option value="stared">Stared</option>
         </select>          
         </div>
     `,
@@ -15,7 +15,7 @@ export default {
         return {
             filterBy: {
                 subject: '',
-                moreFilter: '',
+                moreFilter: 'all',
                 
             }
         };
