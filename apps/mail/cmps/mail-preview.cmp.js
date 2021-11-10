@@ -2,18 +2,20 @@ export default {
     props: ['mail'],
     template: `
         <div v-if="mail" class="mail-preview">
-            <h3>{{mail.title}}</h3>
+            <h3>{{mail.subject}}</h3>
+            <p>{{mail.body}}</p>
+            <p>{{changeDateFormat}}</p>
         </div>
     `,
-    created(){
-    
+    created() {
+
     },
-    computed:{
-        priceIcon(){
-             if(this.mail.listPrice.currencyCode === 'ILS') return '₪';
-             else if (this.mail.listPrice.currencyCode === 'EUR') return '€';
-             else if (this.mail.listPrice.currencyCode === 'USD') return '$';
+    computed: {
+        changeDateFormat() {
+            var date = this.mail.sentAt;
+            var date = new Date(+date)
+            return date.toDateString().slice(4)
         }
-        
+
     }
-} 
+}

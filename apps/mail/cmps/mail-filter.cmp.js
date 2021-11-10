@@ -3,7 +3,7 @@ export default {
         <div class="mail-filter">
             <label>Search</label>
             <input @input="filter" v-model="filterBy.title" type="text" placeholder="Search mail">
-            <select v-model="">
+            <select >
             <option value="all">ALL</option>
             <option value="read">Read</option>
             <option value="unread">Unread</option>

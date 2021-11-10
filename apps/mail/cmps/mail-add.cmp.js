@@ -1,4 +1,4 @@
-import { mailservice } from '../services/mail-service.js';
+import { mailService } from '../services/mail-service.js';
 export default {
     // template: `
     //   <div class="book-add">
