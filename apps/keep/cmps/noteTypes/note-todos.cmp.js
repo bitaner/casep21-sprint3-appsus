@@ -2,7 +2,7 @@ export default {
 
     props: ['note'],
     template: `
-        <section>
+        <section class="todo-note">
             <p>
                 {{note.type}}
                 {{note.label}}

@@ -2,7 +2,7 @@ export default {
 
     props: ['note'],
     template: `
-        <section>
+        <section class="img-note">
             <p>
                 {{note.type}}
                 {{note.info.title}}

@@ -1,42 +1,44 @@
 import { noteService } from '../services/note-service.js';
+
+
 export default {
     template: `
-      <div class="book-add">
-      <label>Search Google!
-          <input v-model.lazy="txt" type="text" placeholder="Search" @blur="Search">
-      </label>
-      <div v-if="haveResult" >
-            <div class="Results" v-for="(book,idx) in searchResult">
-                <h3>{{book.volumeInfo.title}}</h3>
-                <button v-on:click="addBook(idx)">+</button>
-            </div>
+    <div class="note-add">
+            <label for="types">Add note</label>
+            <select name="types" id="types" v-model="newNoteType" @change="reportType" >
+                <option value="" disabled selected>Select type</option>   
+                <option value="note-txt">Text</option>
+                <option value="note-img">Image</option>
+                <option value="note-todos">To-do</option>
+                <option value="note-vid">Video</option>
+            </select>
+            <section v-if=newNoteType class="create-note">
+                <button @click="closeNewNote">X</button>
+                <h2>new note section!</h2>
+                {{newNoteType}}
+                <!-- <component :newNoteType = "noteType" :is= "noteType" ></component> -->
+            </section>
+    </div>
     
-      </div>
-      </div>
     `,
     data() {
         return {
-            txt: null,
-            haveResult: false,
-            searchResult: null
+            noteToAdd: null,
+            newNoteType: null,
 
         };
     },
     methods: {
-        Search() {
-            if (!this.txt) return;
-            bookService.googleSearch(this.txt)
-                .then((res => {
-                    this.searchResult = res;
-                    this.haveResult = true;
-                    console.log(res)
-                }))
-
+        addNote() {
+            var noteToAdd = this.newNote
+            noteService.addNote(noteToAdd)
+                .then((note) => { this.$emit('noteToAdd', note) })
         },
-        addBook(idx) {
-            var bookToAdd = this.searchResult[idx]
-            bookService.addGoogleBook(bookToAdd)
-                .then((book) => { this.$emit('bookToAdd', book) })
+        reportType() {
+            console.log(this.newNoteType)
+        },
+        closeNewNote() {
+            this.newNoteType = null
         }
     },
 

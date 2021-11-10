@@ -30,10 +30,32 @@ body {
     flex-direction: row;
 }
 
-.note {
+.notes-gallery {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.note-preview-container {
     background-color: darkseagreen;
+    height: fit-content;
+    width: fit-content;
+    display: inline-block;
+    margin: 30px;
+}
+
+.note {
+    /* background-color: darkseagreen;
+    height: fit-content;
+    width: fit-content;
+    display: inline-block;
+    margin: 30px; */
 }
 
 .note img {
     height: 150px;
+    /* object-fit: */
+}
+
+li {
+    list-style: none;
 }
