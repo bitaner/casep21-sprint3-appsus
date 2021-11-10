@@ -2,7 +2,7 @@ export default {
     props: ['mail'],
     template: `
         <div v-if="mail" class="mail-preview">
-            <h3>{{mail.subject}}</h3>
+            <p>{{mail.subject}}</p>
             <p>{{mail.body}}</p>
             <p>{{changeDateFormat}}</p>
         </div>

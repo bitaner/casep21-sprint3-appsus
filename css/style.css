@@ -1,6 +1,15 @@
 body {
     background-color: blanchedalmond;
 }
+.mail-app{
+    display: flex;
+    flex-direction: row;
+}
+
+.mail-nav{
+    display: flex;
+    flex-direction: row;
+}
 
 .mail-filter {
     background-color: aqua;
@@ -12,7 +21,17 @@ body {
     flex-direction: row;
     justify-content: space-between;
 }
+.mail-bigger-prev{
+    border: 1px solid black;
+}
 
+.mail-bigger-prev h3, h5{
+    display: inline-block;
+}
+
+.mail-bigger-prev h5{
+    color: gray;
+}
 .mail-preview {
     display: flex;
     flex-direction: row;
@@ -36,4 +55,10 @@ body {
 
 .note img {
     height: 150px;
+}
+
+.bold{
+    font-weight: bold;
+ 
+    font-size: 1.2rem;
 }
