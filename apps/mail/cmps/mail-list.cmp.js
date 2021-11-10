@@ -6,9 +6,9 @@ export default {
     template: `
         <div class="mail-list">
 
-            <div class="mail-card" v-for="mail in mails" :key="mail.id" >
+            <div class="mail-card" v-for="(mail,index) in mails" :key="mail.id" >
            
-                <div class="mail-preview-container" v-on:click="showBiggerPrev(mail.id)">
+                <div class="mail-preview-container" v-on:click=toggle(index)>
                     <mail-preview :mail="mail" @click.native="log"/>
 
                     <div class="actions">
@@ -18,7 +18,7 @@ export default {
                     </div>
                 </div>
 
-                <div :key="mail.id" v-if="mail" class="mail-bigger-prev">
+                <div class="mail-bigger-prev hidden" v-show="mail.showMore">
                 <h3>{{mail.subject}}</h3>    
                 <h5>{{mail.to}}</h5>    
                 <p>{{mail.body}}</p>
@@ -29,20 +29,23 @@ export default {
               
         </div>
     `,
-    data(){
-        return {shouldShow: false}
+    data() {
+        return {showMore:true}
     },
     methods: {
-        showBiggerPrev(mailId){
-            this.mails.map(mail => {
-                if(mailId = mailId.id) {
-              console.log('hi') }})
+        toggle(index) {
+            console.log(index)
+            if (!this.mails[index].showMore) {
+                this.mails[index].showMore = true;
+            } else {
+                this.mails[index].showMore = false;
+            }
         },
         remove(mailId) {
             this.$emit('remove', mailId);
         },
         log() {
-            console.log('Logging.....');
+            this.toggle()
         }
     },
     components: {

@@ -2,7 +2,7 @@ export default {
     template: `
         <div class="mail-filter">
             <label>Search</label>
-            <input @input="filter" v-model="filterBy.title" type="text" placeholder="Search mail">
+            <input @input="filter" v-model="filterBy.subject" type="text" placeholder="Search mail">
             <select >
             <option value="all">ALL</option>
             <option value="read">Read</option>
@@ -14,7 +14,8 @@ export default {
     data() {
         return {
             filterBy: {
-                title: '',
+                subject: '',
+                
             }
         };
     },

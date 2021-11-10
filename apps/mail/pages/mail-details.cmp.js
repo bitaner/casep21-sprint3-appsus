@@ -4,7 +4,7 @@ import reviewAdd from '../cmps/review-add.cmp.js';
 export default {
     template: `
         <section v-if="mail" class="mail-details app-main">
-            <h5>{{mail.title}}</h5>
+            <h5>{{mail.subject}}</h5>
             <p><span>Subtitle:</span> {{mail.subtitle}}</p>
             <p><span>Authors: </span>{{mail.authors}}</p>
             <p><span>Published Date :</span> {{mail.publishedDate}} {{textAboutDate}}</p>

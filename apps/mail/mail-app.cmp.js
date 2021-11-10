@@ -10,14 +10,16 @@ export default {
         <section class="mail-app app-main">
         <mail-filter @filtered="setFilter"></mail-filter>
         <!-- <mail-add @mailToAdd="loadmails"></mail-add> -->
-        <mail-list :mails="mailsToShow"  @remove="removemail"></mail-list>
+        <mail-list v-if="mailsToShow" :mails="mailsToShow"  @remove="removemail"></mail-list>
         </section>
     `,
     data() {
         return {
             mails: null,
             selectedmail: null,
-            filterBy: null
+            filterBy: null,
+            // mailsToShow:null
+           
         };
     },
     created() {
@@ -25,7 +27,9 @@ export default {
     }, 
     methods: {
         loadMails(){
-            mailService.query().then((mails)=> this.mails = mails)
+            mailService.query()
+            .then((mails)=> this.mails = mails.filter(mail=> {
+                                              return mail.to === "user@appsus.com"}))
         },
         selectmail(mail) {
             this.selectedmail= mail;
@@ -58,14 +62,19 @@ export default {
     },
     computed: {
         mailsToShow() {
+           
             if (!this.filterBy) return this.mails;
-            const searchStr = this.filterBy.title.toLowerCase();
-          
+            //     console.log(this.mails)
+            //    return this.mails.filter(mail=> {
+            //         return (mail.to === "user@appsus.com")
+            //     });
+            // }
+            const searchStr = this.filterBy.subject.toLowerCase();
 
-            const mailsToShow = this.mails.filter(mail=> {
-                return mail.title.toLowerCase().includes(searchStr) 
+            return this.mails.filter(mail=> {
+                return mail.subject.toLowerCase().includes(searchStr)
             });
-            return mailsToShow;
+         
         }
     },
     components: {
