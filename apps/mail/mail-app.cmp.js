@@ -2,15 +2,20 @@ import { mailService } from './services/mail-service.js';
 import mailFilter from './cmps/mail-filter.cmp.js';
 import mailList from './cmps/mail-list.cmp.js';
 import mailAdd from './cmps/mail-add.cmp.js';
+import mailNav from './cmps/mail-nav.cmp.js';
+
 // import { eventBus } from '../services/event-bus-service.js';
 
 
 export default {
     template: `
         <section class="mail-app app-main">
-        <mail-filter @filtered="setFilter"></mail-filter>
-        <!-- <mail-add @mailToAdd="loadmails"></mail-add> -->
-        <mail-list v-if="mailsToShow" :mails="mailsToShow"  @remove="removemail"></mail-list>
+            <mail-nav :mails="mails"></mail-nav>
+            <div>
+                <mail-filter @filtered="setFilter"></mail-filter>
+                <!-- <mail-add @mailToAdd="loadmails"></mail-add> -->
+                <mail-list v-if="mailsToShow" :mails="mailsToShow"  @remove="removemail"></mail-list>
+            </div>
         </section>
     `,
     data() {
@@ -80,6 +85,7 @@ export default {
     components: {
         mailList,
         mailFilter, 
-        mailAdd
+        mailAdd,
+        mailNav
     }
 };
