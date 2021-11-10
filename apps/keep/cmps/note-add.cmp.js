@@ -17,7 +17,7 @@ export default {
     data() {
         return {
             txt: null,
-            haveResult:false,
+            haveResult: false,
             searchResult: null
 
         };
@@ -33,12 +33,12 @@ export default {
                 }))
 
         },
-        addBook(idx){
-          var bookToAdd = this.searchResult[idx]
-          bookService.addGoogleBook(bookToAdd)
-            .then((book)=> {this.$emit('bookToAdd', book)})
+        addBook(idx) {
+            var bookToAdd = this.searchResult[idx]
+            bookService.addGoogleBook(bookToAdd)
+                .then((book) => { this.$emit('bookToAdd', book) })
         }
     },
-   
+
 
 }

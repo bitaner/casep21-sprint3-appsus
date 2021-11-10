@@ -33,6 +33,7 @@ function getById(noteId) {
 
 function _createNotes() {
     storageService.query(NOTES_KEY)
+        // console.log(gNotes)
         .then((notes) => {
             gNotes = notes
             if (!gNotes || !gNotes.length) {
@@ -52,31 +53,45 @@ function _createNotes() {
                             txt: "fafa!"
                         }
                     },
-                    // {
-                    //     id: "n102",
-                    //     type: "note-img",
-                    //     info: {
-                    //         url: "http://some-img/me",
-                    //         title: "Bobi and Me"
-                    //     },
-                    //     style: {
-                    //         backgroundColor: "#00d"
-                    //     }
-                    // },
-                    // {
-                    //     id: "n103",
-                    //     type: "note-todos",
-                    //     info: {
-                    //         label: "Get my stuff together",
-                    //         todos: [
-                    //             { txt: "Driving liscence", doneAt: null },
-                    //             { txt: "Coding power", doneAt: 187111111 }
-                    //         ]
-                    //     }
-                    // }
+                    {
+                        id: "n103",
+                        type: "note-img",
+                        info: {
+                            url: "apps/keep/imgs/2.jpeg",
+                            title: "caparrrraaaa"
+                        },
+                        style: {
+                            backgroundColor: "#00d"
+                        }
+                    },
+                    {
+                        id: "n104",
+                        type: "note-img",
+                        info: {
+                            url: "apps/keep/imgs/1.jpeg",
+                            title: "if vue gives you errors, turn them to notes "
+                        },
+                        style: {
+                            backgroundColor: "#00d"
+                        }
+                    },
+                    {
+                        id: "n105",
+                        type: "note-todos",
+                        info: {
+                            label: "Get my stuff together",
+                            todos: [
+                                { txt: "Driving liscence", doneAt: null },
+                                { txt: "Coding power", doneAt: 187111111 }
+                            ]
+                        }
+                    }
                 ]
                 utilService.saveToStorage(NOTES_KEY, gNotes);
             }
+            console.log(gNotes)
             return gNotes;
         })
+    return gNotes;
+
 }

@@ -1,6 +1,6 @@
 import { noteService } from '/apps/keep/services/note-service.js'
 import noteFilter from '/apps/keep/cmps/note-filter.cmp.js'
-import noteAdd from '/apps/keep/cmps/note-add.cmp.js'
+// import noteAdd from '/apps/keep/cmps/note-add.cmp.js'
 import noteList from '/apps/keep/cmps/note-list.cmp.js'
 import { eventBus } from '/services/event-bus-service.js'
 
@@ -9,13 +9,13 @@ export default {
     components: {
         noteList,
         noteFilter,
-        noteAdd
+        // noteAdd
     },
     template: `
         <section class="note-app app-main">
             <h1>notes</h1>
         <note-filter @filtered="setFilter"></note-filter>
-        <note-add @noteToAdd="loadNotes"></note-add>
+        <!-- <note-add @noteToAdd="loadNotes"></note-add> -->
         <note-list :notes="notesToShow"  @remove="removeNote"></note-list>
         </section>
     `,
@@ -50,7 +50,7 @@ export default {
                         type: 'success'
                     };
                     eventBus.$emit('showMsg', msg);
-                    this.cars = this.cars.filter(car => car.id !== id)
+                    this.notes = this.notes.filter(note => note.id !== id)
                 })
                 .catch(err => {
                     console.log('err', err);
@@ -66,11 +66,9 @@ export default {
         notesToShow() {
             if (!this.filterBy) return this.notes;
             const searchStr = this.filterBy.title.toLowerCase();
-            const minPrice = this.filterBy.fromPrice
-            const maxPrice = this.filterBy.toPrice
 
             const notesToShow = this.notes.filter(note => {
-                return note.title.toLowerCase().includes(searchStr) && note.listPrice.amount >= minPrice && note.listPrice.amount <= maxPrice || !this.filterBy.toPrice;
+                return note.title.toLowerCase().includes(searchStr);
             });
             return notesToShow;
         }

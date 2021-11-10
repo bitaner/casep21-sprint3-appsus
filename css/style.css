@@ -1,29 +1,39 @@
 body {
     background-color: blanchedalmond;
 }
-.mail-filter{
+
+.mail-filter {
     background-color: aqua;
 }
 
-.mail-preview-container{
+.mail-preview-container {
     border: 1px solid black;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.mail-preview{
+.mail-preview {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 90%;
 }
 
-.mail-bigger-prev{
+.mail-bigger-prev {
     position: relative;
-    top:100;
+    top: 100;
 }
-.actions{
+
+.actions {
     display: flex;
     flex-direction: row;
+}
+
+.note {
+    background-color: darkseagreen;
+}
+
+.note img {
+    height: 150px;
 }
