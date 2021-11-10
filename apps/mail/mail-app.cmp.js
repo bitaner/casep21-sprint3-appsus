@@ -24,50 +24,51 @@ export default {
             selectedmail: null,
             filterBy: null,
             // mailsToShow:null
-           
+
         };
     },
     created() {
         this.loadMails()
-    }, 
+    },
     methods: {
-        loadMails(){
+        loadMails() {
             mailService.query()
-            .then((mails)=> this.mails = mails.filter(mail=> {
-                                              return mail.to === "user@appsus.com"}))
+                .then((mails) => this.mails = mails.filter(mail => {
+                    return mail.to === "user@appsus.com"
+                }))
         },
         selectmail(mail) {
-            this.selectedmail= mail;
+            this.selectedmail = mail;
         },
         closeDetails() {
-            this.selectedmail= null;
+            this.selectedmail = null;
         },
         setFilter(filterBy) {
             this.filterBy = filterBy;
-        }, 
-        removemail(id){
+        },
+        removemail(id) {
             mailService.remove(id)
-                    .then(() => {
-                        const msg = {
-                            txt: 'Deleted succesfully',
-                            type: 'success'
-                        };
-                        eventBus.$emit('showMsg', msg);
-                        this.mails = this.mails.filter(mail=> mail.id !== id)
-                    })
-                    .catch(err => {
-                        console.log('err', err);
-                        const msg = {
-                            txt: 'Error. Please try later',
-                            type: 'error'
-                        };
-                        eventBus.$emit('showMsg', msg);
-                    });
+                .then(() => {
+                    const msg = {
+                        txt: 'Deleted succesfully',
+                        type: 'success'
+                    };
+                    eventBus.$emit('showMsg', msg);
+                    this.mails = this.mails.filter(mail => mail.id !== id)
+                })
+                .catch(err => {
+                    console.log('err', err);
+                    const msg = {
+                        txt: 'Error. Please try later',
+                        type: 'error'
+                    };
+                    eventBus.$emit('showMsg', msg);
+                });
         }
     },
     computed: {
         mailsToShow() {
-           
+
             if (!this.filterBy) return this.mails;
             //     console.log(this.mails)
             //    return this.mails.filter(mail=> {
@@ -76,15 +77,15 @@ export default {
             // }
             const searchStr = this.filterBy.subject.toLowerCase();
 
-            return this.mails.filter(mail=> {
+            return this.mails.filter(mail => {
                 return mail.subject.toLowerCase().includes(searchStr)
             });
-         
+
         }
     },
     components: {
         mailList,
-        mailFilter, 
+        mailFilter,
         mailAdd,
         mailNav
     }
