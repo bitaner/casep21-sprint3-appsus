@@ -12,7 +12,6 @@ export default {
     },
     template: `
     <section v-if="note" class="note">
-        <h1>note</h1>
             <div>
                 <component :note = "note" :is= "note.type" class="note"></component>
         </div>
