@@ -1,6 +1,6 @@
-import noteTxt from '/apps/keep/cmps/noteTypes/note-txt.cmp.js'
-import noteImg from '/apps/keep/cmps/noteTypes/note-img.cmp.js'
-import noteTodos from '/apps/keep/cmps/noteTypes/note-todos.cmp.js'
+import noteTxt from './apps/keep/cmps/noteTypes/note-txt.cmp.js'
+import noteImg from './apps/keep/cmps/noteTypes/note-img.cmp.js'
+import noteTodos from './apps/keep/cmps/noteTypes/note-todos.cmp.js'
 
 
 export default {
