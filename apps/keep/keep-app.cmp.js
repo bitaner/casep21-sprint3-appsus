@@ -1,8 +1,8 @@
-import { noteService } from './apps/keep/services/note-service.js'
-import noteFilter from './apps/keep/cmps/note-filter.cmp.js'
-import noteAdd from './apps/keep/cmps/note-add.cmp.js'
-import noteList from './apps/keep/cmps/note-list.cmp.js'
-import { eventBus } from './services/event-bus-service.js'
+import { noteService } from '/apps/keep/services/note-service.js'
+import noteFilter from '/apps/keep/cmps/note-filter.cmp.js'
+import noteAdd from '/apps/keep/cmps/note-add.cmp.js'
+import noteList from '/apps/keep/cmps/note-list.cmp.js'
+import { eventBus } from '/services/event-bus-service.js'
 
 
 export default {
