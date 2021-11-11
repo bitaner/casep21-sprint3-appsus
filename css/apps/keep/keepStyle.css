@@ -23,9 +23,21 @@ ul {
 }
 
 .note-preview-container {
+    background-color: rgb(206, 197, 122);
+    /* height: fit-content;
+    width: fit-content;
+    display: inline-block;
+    margin: 30px; */
+}
+
+.note {
     background-color: darkseagreen;
     height: fit-content;
     width: fit-content;
     display: inline-block;
-    margin: 30px;
+    /* margin: 30px; */
+}
+
+.dynamic-note {
+    background-color: inherit;
 }

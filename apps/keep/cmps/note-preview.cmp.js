@@ -10,17 +10,46 @@ export default {
         noteTodos
     },
     template: `
-    <section v-if="note" class="note">
-            <div>
-                <component :note = "note" :is= "note.type" class="note"></component>
-        </div>
+    <section v-if="note" class="note" v-bind:style="{backgroundColor:color}">
+                <component :note = "note" :is= "note.type" class="dynamic-note"></component>
+                    <button @click="remove(note.id)">🗑</button>
+                    <button @click="edit(note.id)">✏</button>
+                    <button @click="setBGC(note.id)">🎨</button>
+                    <button @click="pin(note.id)">📌</button>
+                    <button @click="mail(note.id)">📧</button>
+                    <input ref="colorInput" type="color"  v-model="color" @change="setBGCinput(note.id)"  >
+                    <!-- @change="setBGCinput(note.id, this.value)" -->
+                    <!-- v-model="note.backgroundColor" -->
+                    <!-- <router-link :to="'/note/'+note.id">Details</router-link> -->
+                    <!-- <router-link :to="'/note/edit/'+note.id">Edit</router-link> -->
+                
     </section> 
     `,
     data() {
-        return {};
+        return { color: null };
     },
     methods: {
-
+        remove(noteId) {
+            console.log('remove', noteId)
+            this.$emit('remove', noteId)
+        },
+        edit(noteId) {
+            console.log('edit', noteId)
+            this.$emit('edit', noteId)
+        },
+        setBGC(noteId) {
+            // this.$emit('setBGC', noteId)
+            console.log(noteId)
+        },
+        setBGCinput(noteId) {
+            console.log(noteId, this.color)
+        },
+        mail(noteId) {
+            console.log('mail ', noteId)
+        },
+        pin(noteId) {
+            console.log('pin ', noteId)
+        }
     },
     created() {
 

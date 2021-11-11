@@ -44,7 +44,10 @@ function _createNotes() {
                         isPinned: true,
                         info: {
                             txt: "Fullstack Me Baby!"
-                        }
+                        },
+
+                        backgroundColor: "#12020d"
+
                     },
                     {
                         id: "n102",
@@ -52,7 +55,10 @@ function _createNotes() {
                         isPinned: false,
                         info: {
                             txt: "fafa!"
-                        }
+                        },
+
+                        backgroundColor: "#12020d"
+
                     },
                     {
                         id: "n103",
@@ -61,9 +67,9 @@ function _createNotes() {
                             url: "apps/keep/imgs/2.jpeg",
                             title: "caparrrraaaa"
                         },
-                        style: {
-                            backgroundColor: "#00d"
-                        }
+
+                        backgroundColor: "#12020d"
+
                     },
                     {
                         id: "n104",
@@ -72,21 +78,40 @@ function _createNotes() {
                             url: "apps/keep/imgs/1.jpeg",
                             title: "if vue gives you errors, turn them to notes "
                         },
-                        style: {
-                            backgroundColor: "#00d"
-                        }
+
+                        backgroundColor: "#12020d"
+
                     },
                     {
                         id: "n105",
                         type: "note-todos",
                         info: {
-                            label: "Get my stuff together",
+                            label: "you are fine the way you are",
                             todos: [
-                                { txt: "Driving liscence", doneAt: null },
-                                { txt: "Coding power", doneAt: 187111111 }
+                                { txt: "Driving liscence", doneAt: null, id: '0' },
+                                { txt: "Coding power", doneAt: 187111111, id: '1' }
                             ]
-                        }
-                    }
+                        },
+
+                        backgroundColor: "#12020d"
+
+                    },
+                    {
+                        id: "n106",
+                        type: "note-todos",
+                        info: {
+                            label: "you are getting it done",
+                            todos: [
+                                { txt: "baba", doneAt: null, id: '0' },
+                                { txt: "hello", doneAt: 187123411, id: '1' },
+                                { txt: "finish him", doneAt: null, id: '2' },
+                                { txt: "yalla sa ", doneAt: 2323, id: '3' }
+                            ]
+                        },
+
+                        backgroundColor: "#12020d"
+
+                    },
                 ]
                 utilService.saveToStorage(NOTES_KEY, gNotes);
             }
