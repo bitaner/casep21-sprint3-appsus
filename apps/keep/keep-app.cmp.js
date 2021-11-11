@@ -31,6 +31,7 @@ export default {
         eventBus.$on('setBGC', this.setBGC)
         eventBus.$on('updateText', this.textEdit)
         eventBus.$on('TodosUpdate', this.todosUpdate)
+        eventBus.$on('toggleMark', this.todosUpdate)
     },
     methods: {
         loadNotes() {

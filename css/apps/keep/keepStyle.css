@@ -45,3 +45,7 @@ ul {
 .text-note {
     background-color: inherit;
 }
+
+.overLine {
+    text-decoration: overline;
+}

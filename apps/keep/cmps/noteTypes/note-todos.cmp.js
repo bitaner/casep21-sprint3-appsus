@@ -16,13 +16,14 @@ export default {
             </h3>
             <ul class="todo-list">
             <li v-for="(todo,idx) in note.info.todos">
-            <input type="checkbox" v-bind:checked="todo.doneAt">
-            {{todo.txt}}
+            <input type="checkbox" v-bind:checked="todo.doneAt" @click="toggleMark" >
+            <span v-bind:class="toggleOverlineClass" >{{todo.txt}}</span>
             <button v-on:click="removeTodo(todo.id)">X</button>    
             </li>
-           <input type="text" v-model="value" placeholder="i need to do..." @change="addTodo()">
+           <input type="text" v-model="value" placeholder="i need to do..." @change="addTodo">
             </ul>
         </section>
+        <!-- v-bind:class="toggleOverLine" -->
     `,
     data() {
         return {
@@ -37,7 +38,7 @@ export default {
                 // console.log('this.users', this.users);
             this.note.info.todos = this.note.info.todos.filter(u => u.id !== todoId)
             eventBus.$emit('TodosUpdate', this.note)
-                // add event on bus!
+
         },
         addTodo() {
             console.log(this.value)
@@ -51,10 +52,22 @@ export default {
                 // console.log(this.note)
             this.value = ''
             eventBus.$emit('TodosUpdate', this.note)
-                // add event on bus!
-        }
+
+        },
+        toggleMark() {
+            console.log('togglemark')
+            console.log(this.note.info.todos)
+            eventBus.$emit('toggleMark', this.note)
+        },
+        // toggleDark() {
+        //     this.isDark = !this.isDark
+        // }
+
     },
     computed: {
-
+        toggleOverlineClass(todo) {
+            if (todo.doneAt) return 'overLine'
+            return ''
+        }
     }
 }

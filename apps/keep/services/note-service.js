@@ -89,6 +89,8 @@ function _createNotes() {
                             label: "you are fine the way you are",
                             todos: [
                                 { txt: "Driving liscence", doneAt: null, id: '0' },
+                                { txt: "Coding power", doneAt: true, id: '1' },
+                                { txt: "Coding power", doneAt: null, id: '1' },
                                 { txt: "Coding power", doneAt: 187111111, id: '1' }
                             ]
                         },
