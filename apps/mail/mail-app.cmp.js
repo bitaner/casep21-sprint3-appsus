@@ -9,12 +9,13 @@ import mailNav from './cmps/mail-nav.cmp.js';
 
 export default {
     template: `
-        <section class="mail-app app-main">
-            <mail-nav :mails="mails"></mail-nav>
-            <div>
+        <section v-if="mails"class="mail-app app-main">
+            <mail-nav :mails="mails" ></mail-nav>
+            
+            <div v-if="mails">
                 <mail-filter @filtered="setFilter"></mail-filter>
                 <!-- <mail-add @mailToAdd="loadmails"></mail-add> -->
-                <mail-list v-if="mailsToShow" :mails="mailsToShow"  @remove="removemail"></mail-list>
+                <mail-list v-if="filterBy" :mails="mailsToShow"  @remove="removemail"></mail-list>
             </div>
         </section>
     `,
@@ -23,6 +24,7 @@ export default {
             mails: null,
             selectedmail: null,
             filterBy: null,
+
             // mailsToShow:null
 
         };
@@ -32,10 +34,9 @@ export default {
     },
     methods: {
         loadMails() {
+            console.log('loading')
             mailService.query()
-                .then((mails) => this.mails = mails.filter(mail => {
-                    return mail.to === "user@appsus.com"
-                }))
+                .then(mails => this.mails = mails)
         },
         selectmail(mail) {
             this.selectedmail = mail;
@@ -44,7 +45,7 @@ export default {
             this.selectedmail = null;
         },
         setFilter(filterBy) {
-            this.filterBy = filterBy;
+            this.filterBy = filterBy
         },
         removemail(id) {
             mailService.remove(id)
@@ -68,25 +69,31 @@ export default {
     },
     computed: {
         mailsToShow() {
-
-            if (!this.filterBy) return this.mails;
-            //     console.log(this.mails)
-            //    return this.mails.filter(mail=> {
-            //         return (mail.to === "user@appsus.com")
-            //     });
-            // }
+            console.log('hi')
+            console.log(this.filterBy)
             const searchStr = this.filterBy.subject.toLowerCase();
+            var mailToUser = this.mails.filter(mail => mail.to === "user@appsus.com")
+            var mailFiltered = null;
+            switch (this.filterBy.moreFilter) {
+                case 'all': mailFiltered = this.mails.filter(mail => mail.to === "user@appsus.com");
+                    break
+                case 'read': mailFiltered = mailToUser.filter(mail => mail.isRead === true);
+                    break
+                case 'unread': mailFiltered = mailToUser.filter(mail => mail.isRead === false);
+                    break
+                case 'stared': mailFiltered = mailToUser.filter(mail => mail.stared === true);
+            }
+            if (searchStr) {
+                return mailFiltered.filter(mail => mail.subject.toLowerCase().includes(searchStr))
+            } else return mailFiltered;
 
-            return this.mails.filter(mail => {
-                return mail.subject.toLowerCase().includes(searchStr)
-            });
-
-        }
-    },
-    components: {
-        mailList,
+    }
+},
+components: {
+    mailList,
         mailFilter,
         mailAdd,
         mailNav
-    }
+}
 };
+

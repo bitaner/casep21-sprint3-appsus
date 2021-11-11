@@ -5,56 +5,6 @@ body {
     background-color: blanchedalmond;
 }
 
-.mail-app {
-    display: flex;
-    flex-direction: row;
-}
-
-.mail-nav {
-    display: flex;
-    flex-direction: row;
-}
-
-.mail-filter {
-    background-color: aqua;
-}
-
-.mail-preview-container {
-    border: 1px solid black;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.mail-bigger-prev {
-    border: 1px solid black;
-}
-
-.mail-bigger-prev h3,
-h5 {
-    display: inline-block;
-}
-
-.mail-bigger-prev h5 {
-    color: gray;
-}
-
-.mail-preview {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 90%;
-}
-
-.mail-bigger-prev {
-    position: relative;
-    top: 100;
-}
-
-.actions {
-    display: flex;
-    flex-direction: row;
-}
 
 .notes-gallery {
     display: flex;
@@ -86,9 +36,4 @@ h5 {
 
 li {
     list-style: none;
-}
-
-.bold {
-    font-weight: bold;
-    font-size: 1.2rem;
 }
