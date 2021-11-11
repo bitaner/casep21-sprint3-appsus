@@ -1,6 +1,6 @@
-@import './book/bookStyle.css';
-@import './keep/keepStyle.css';
-@import './mail/mailStyle.css';
+@import './apps/book/bookStyle.css';
+@import './apps/keep/keepStyle.css';
+@import './apps/mail/mailStyle.css';
 body {
     background-color: blanchedalmond;
 }
