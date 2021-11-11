@@ -1,4 +1,5 @@
-import { utilService } from '../../../../services/util-service.js';
+import { utilService } from '../../../../services/util-service.js'
+import { eventBus } from '../../../../services/event-bus-service.js'
 
 // doneAt - check done at time stamp
 // marked - lineover
@@ -35,6 +36,8 @@ export default {
             this.note.info.todos.splice(idx, 1)
                 // console.log('this.users', this.users);
             this.note.info.todos = this.note.info.todos.filter(u => u.id !== todoId)
+            eventBus.$emit('TodosUpdate', this.note)
+                // add event on bus!
         },
         addTodo() {
             console.log(this.value)
@@ -47,8 +50,8 @@ export default {
             this.note.info.todos.push(newTodo)
                 // console.log(this.note)
             this.value = ''
-
-
+            eventBus.$emit('TodosUpdate', this.note)
+                // add event on bus!
         }
     },
     computed: {

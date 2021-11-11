@@ -1,6 +1,7 @@
 import noteTxt from './noteTypes/note-txt.cmp.js'
 import noteImg from './noteTypes/note-img.cmp.js'
 import noteTodos from './noteTypes/note-todos.cmp.js'
+import { eventBus } from '../../../services/event-bus-service.js'
 
 export default {
     props: ['note'],
@@ -10,23 +11,20 @@ export default {
         noteTodos
     },
     template: `
-    <section v-if="note" class="note" v-bind:style="{backgroundColor:color}">
+    <section v-if="note" class="note" v-bind:style="{backgroundColor:note.backgroundColor}">
                 <component :note = "note" :is= "note.type" class="dynamic-note" @updateText="updateText"></component>
                     <button @click="remove(note.id)">🗑</button>
                     <button @click="edit(note.id)">✏</button>
-                    <button @click="setBGC(note.id)">🎨</button>
                     <button @click="pin(note.id)">📌</button>
                     <button @click="mail(note.id)">📧</button>
-                    <input ref="colorInput" type="color"  v-model="color" @change="setBGCinput(note.id)"  >
-                    <!-- @change="setBGCinput(note.id, this.value)" -->
-                    <!-- v-model="note.backgroundColor" -->
-                    <!-- <router-link :to="'/note/'+note.id">Details</router-link> -->
-                    <!-- <router-link :to="'/note/edit/'+note.id">Edit</router-link> -->
-                
+                    <input ref="colorInput" value="#ff0080" type="color"  v-model="color" @change="setBGCinput(note)"   >
     </section> 
     `,
     data() {
         return { color: null };
+    },
+    created() {
+
     },
     methods: {
         remove(noteId) {
@@ -41,12 +39,12 @@ export default {
             console.log('2', note)
             this.$emit('textEdit', note)
         },
-        setBGC(noteId) {
-            // this.$emit('setBGC', noteId)
-            console.log(noteId)
-        },
-        setBGCinput(noteId) {
-            console.log(noteId, this.color)
+        setBGCinput(note) {
+            // console.log(this.note.backgroundColor)
+            // console.log(note, this.color)
+            this.note.backgroundColor = this.color
+                // console.log('after ', this.note.backgroundColor)
+            eventBus.$emit('setBGC', note)
         },
         mail(noteId) {
             console.log('mail ', noteId)
@@ -55,9 +53,7 @@ export default {
             console.log('pin ', noteId)
         }
     },
-    created() {
 
-    },
     computed: {
 
     },

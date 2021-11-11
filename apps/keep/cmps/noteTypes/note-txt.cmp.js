@@ -1,4 +1,5 @@
-import { utilService } from '../../../../services/util-service.js';
+import { utilService } from '../../../../services/util-service.js'
+import { eventBus } from '../../../../services/event-bus-service.js'
 
 // make the change save and update storage
 
@@ -11,15 +12,12 @@ export default {
         </section> 
     `,
     data() {
-        return {
-            // text: this.note.info.txt
-        };
+        return {}
     },
     methods: {
         updateText() {
-
-            console.log(this.note)
-            this.$emit('updateText', this.note)
+            // console.log(this.note)
+            eventBus.$emit('updateText', this.note)
         }
     }
 }

@@ -27,6 +27,10 @@ export default {
     },
     created() {
         this.loadNotes()
+
+        eventBus.$on('setBGC', this.setBGC)
+        eventBus.$on('updateText', this.textEdit)
+        eventBus.$on('TodosUpdate', this.todosUpdate)
     },
     methods: {
         loadNotes() {
@@ -48,26 +52,39 @@ export default {
             noteService.remove(id)
                 .then(() => {
                     const msg = {
-                        txt: 'Deleted succesfully',
-                        type: 'success'
-                    }
-                    eventBus.$emit('showMsg', msg)
+                            txt: 'Deleted succesfully',
+                            type: 'success'
+                        }
+                        // eventBus.$emit('showMsg', msg)
                     this.notes = this.notes.filter(note => note.id !== id)
                 })
                 .catch(err => {
                     console.log('err', err)
                     const msg = {
-                        txt: 'Error. Please try later',
-                        type: 'error'
-                    }
-                    eventBus.$emit('showMsg', msg)
+                            txt: 'Error. Please try later',
+                            type: 'error'
+                        }
+                        // eventBus.$emit('showMsg', msg)
                 })
         },
         textEdit(note) {
-            console.log('4', note)
+            console.log('arrived to bus', note)
+                // console.log('4', note)
             noteService.save(note)
 
+        },
+        setBGC(note) {
+            //  (noteId, bgc) => {
+            console.log('arrived to bus', note)
+            noteService.save(note)
+                // })
+        },
+        todosUpdate(note) {
+            console.log('arrived to bus', note)
+                // console.log('4', note)
+            noteService.save(note)
         }
+
     },
     computed: {
         notesToShow() {

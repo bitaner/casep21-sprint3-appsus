@@ -46,7 +46,7 @@ function _createNotes() {
                             txt: "Fullstack Me Baby!"
                         },
 
-                        backgroundColor: "#12020d"
+                        backgroundColor: '#b3b3a8'
 
                     },
                     {
@@ -57,7 +57,7 @@ function _createNotes() {
                             txt: "fafa!"
                         },
 
-                        backgroundColor: "#12020d"
+                        backgroundColor: '#b3b3a8'
 
                     },
                     {
@@ -68,7 +68,7 @@ function _createNotes() {
                             title: "caparrrraaaa"
                         },
 
-                        backgroundColor: "#12020d"
+                        backgroundColor: '#b3b3a8'
 
                     },
                     {
@@ -79,7 +79,7 @@ function _createNotes() {
                             title: "if vue gives you errors, turn them to notes "
                         },
 
-                        backgroundColor: "#12020d"
+                        backgroundColor: '#b3b3a8'
 
                     },
                     {
@@ -93,7 +93,7 @@ function _createNotes() {
                             ]
                         },
 
-                        backgroundColor: "#12020d"
+                        backgroundColor: '#b3b3a8'
 
                     },
                     {
@@ -109,7 +109,7 @@ function _createNotes() {
                             ]
                         },
 
-                        backgroundColor: "#12020d"
+                        backgroundColor: '#b3b3a8'
 
                     },
                 ]
