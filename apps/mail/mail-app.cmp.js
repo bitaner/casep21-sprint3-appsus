@@ -10,8 +10,8 @@ import mailNav from './cmps/mail-nav.cmp.js';
 export default {
     template: `
         <section v-if="mails" class="mail-app app-main">
-            <mail-nav @filtered="setFilter" @newMail="creatNewMail" ></mail-nav>
-            <mail-add v-if="newMail" @></mail-add>
+            <mail-nav @filtered="setFilter" @newMail="creatNewMail" :mails="mails"></mail-nav>
+            <mail-add v-if="newMail"></mail-add>
             <div v-if="mails">
             <mail-list v-if="filterBy" :mails="mailsToShow"  @remove="removemail"></mail-list>
             </div>
@@ -52,7 +52,8 @@ export default {
 
         },
         creatNewMail(){
-            
+            console.log('new mail created');
+            this.newMail = true;
         },
         removemail(id) {
             mailService.remove(id)

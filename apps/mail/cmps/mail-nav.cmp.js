@@ -1,5 +1,4 @@
-
-
+import progressBar from './progress-bar.cmp.js';
 
 export default {
     props: ['mails'],
@@ -14,6 +13,7 @@ export default {
             <button v-on:click="setMore('stared')" v-bind:value="filterBy.moreFilter" type="button">stared</button> |
             <button v-on:click="setMore('sent')" v-bind:value="filterBy.moreFilter" type="button">sent mail</button> |
             <button v-on:click="setMore('drafs')" v-bind:value="filterBy.moreFilter" type="button">drafts</button> 
+            <progress-bar :mails="mails" ></progress-bar>
             </nav>
 
        </section>
@@ -24,7 +24,7 @@ export default {
                 subject: '',
                 moreFilter: 'all'
             },
-            newMail: 'newMail',
+            // newMail: 'newMail',
             
         };
     },
@@ -48,7 +48,10 @@ export default {
         },
         creatNewMail() {
             console.log('creat new mail')
-            this.$emit('newMail', newMail);
+            this.$emit('newMail');
         }
+    },
+    components:{
+        progressBar
     }
 };
