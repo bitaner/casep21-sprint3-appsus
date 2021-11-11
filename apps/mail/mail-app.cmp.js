@@ -1,5 +1,5 @@
 import { mailService } from './services/mail-service.js';
-import mailFilter from './cmps/mail-filter.cmp.js';
+// import mailFilter from './cmps/mail-filter.cmp.js';
 import mailList from './cmps/mail-list.cmp.js';
 import mailAdd from './cmps/mail-add.cmp.js';
 import mailNav from './cmps/mail-nav.cmp.js';
@@ -9,13 +9,12 @@ import mailNav from './cmps/mail-nav.cmp.js';
 
 export default {
     template: `
-        <section v-if="mails"class="mail-app app-main">
-            <mail-nav :mails="mails" ></mail-nav>
-            
+        <section v-if="mails" class="mail-app app-main">
+            <mail-nav @filtered="setFilter" ></mail-nav>
+            <mail-add></mail-add>
             <div v-if="mails">
-                <mail-filter @filtered="setFilter"></mail-filter>
-                <!-- <mail-add @mailToAdd="loadmails"></mail-add> -->
-                <mail-list v-if="filterBy" :mails="mailsToShow"  @remove="removemail"></mail-list>
+            <!-- <mail-filter @filtered="setFilter"></mail-filter> -->
+            <mail-list v-if="filterBy" :mails="mailsToShow"  @remove="removemail"></mail-list>
             </div>
         </section>
     `,
@@ -24,19 +23,22 @@ export default {
             mails: null,
             selectedmail: null,
             filterBy: null,
-
-            // mailsToShow:null
-
         };
     },
     created() {
+        console.log('loading')
         this.loadMails()
+        console.log('loading')
     },
     methods: {
         loadMails() {
             console.log('loading')
             mailService.query()
-                .then(mails => this.mails = mails)
+                .then(mails => {
+                    this.mails = mails;
+                    console.log('loading')
+
+                })
         },
         selectmail(mail) {
             this.selectedmail = mail;
@@ -45,7 +47,9 @@ export default {
             this.selectedmail = null;
         },
         setFilter(filterBy) {
-            this.filterBy = filterBy
+            console.log('hi')
+            this.filterBy = filterBy;
+
         },
         removemail(id) {
             mailService.remove(id)
@@ -71,10 +75,13 @@ export default {
         mailsToShow() {
             console.log('hi')
             console.log(this.filterBy);
-            console.log(this.filterBy.moreFilter)
-            const searchStr = this.filterBy.subject.toLowerCase();
             var mailToUser = this.mails.filter(mail => mail.to === "user@appsus.com")
+            const searchStr = this.filterBy.subject
             var mailFiltered = null;
+            if (this.filterBy.moreFilter === 'sent'){
+                if (!searchStr) return mailFiltered = this.mails.filter(mail => mail.to !== "user@appsus.com");
+                else return mailFiltered = this.mails.filter(mail => mail.to !== "user@appsus.com" && mail.subject.toLowerCase().includes(searchStr));
+            }
             switch (this.filterBy.moreFilter) {
                 case 'all': mailFiltered = this.mails.filter(mail => mail.to === "user@appsus.com");
                     break
@@ -83,18 +90,18 @@ export default {
                 case 'unread': mailFiltered = mailToUser.filter(mail => mail.isRead === false);
                     break
                 case 'stared': mailFiltered = mailToUser.filter(mail => mail.stared === true);
-            }
+                }
             if (searchStr) {
                 return mailFiltered.filter(mail => mail.subject.toLowerCase().includes(searchStr))
             } else return mailFiltered;
 
-    }
-},
-components: {
-    mailList,
-        mailFilter,
+        }
+    },
+    components: {
+        mailList,
+        // mailFilter,
         mailAdd,
         mailNav
-}
+    }
 };
 

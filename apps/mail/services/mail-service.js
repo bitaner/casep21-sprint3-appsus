@@ -9,7 +9,7 @@ export const mailService = {
     query,
     remove,
     // save,
-    // getEmptymail,
+    getEmptyMail,
     getById,
     // saveReview,
 };
@@ -67,6 +67,20 @@ function remove(mailId) {
 //   if (mail.id) return storageService.put(mails_KEY, mail);
 //   else return storageService.post(mails_KEY, mail);
 // }
+
+function getEmptyMail() {
+    return {
+        body: '',
+        id: utilService.makeId(),
+        isRead: true,
+        sendAt: '',
+        showMore: false,
+        stared: false,
+        subject: '',
+        to: '',
+    };
+}
+
 
 function getById(mailId) {
     return storageService.get(MAILS_KEY, mailId);

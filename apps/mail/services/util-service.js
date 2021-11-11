@@ -12,12 +12,10 @@ function loadFromStorage(key) {
     let data = localStorage.getItem(key);
     return (data) ? JSON.parse(data) : undefined;
 }
+var gNum = 110 
 
-function makeId(length = 5) {
-    var txt = '';
-    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (var i = 0; i < length; i++) {
-        txt += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
+function makeId() {
+    var num = gNum++
+    var txt = 'e'+ num;
     return txt;
 }

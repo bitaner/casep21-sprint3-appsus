@@ -4,7 +4,7 @@ export default {
     template: `
         <section class="mail-edit app-main">
             <h3>Add a new mail</h3>
-            <form @submit.prevent="save" >
+            <form v-if="mailToEdit" @submit.prevent="save" >
                 <input v-model="mailToEdit.subject" type="text" placeholder="subject">
                 <input v-model="mailToEdit.subject" type="text" placeholder="subject">
                 <input v-model="mailToEdit.subject" type="text" placeholder="subject">

@@ -2,20 +2,48 @@ export default {
     props: ['mails'],
     template: `
        <section class="mail-nav">
+            <label>Search
+            <input v-on:input="setFilterSub" v-model="filterBy.subject" type="text" placeholder="Search mail">
+            </label>
             <nav>
-            <button>compose+</button>
-            <router-link class="link" to="/inbox">inbox</router-link> |
-            <router-link class="link" to="/inbox/stared">stared</router-link> |
-            <router-link class="link" to="/sent">sent mail</router-link> |
-            <router-link class="link" to="/drafts">drafts</router-link> |
+            <button v-on:click="creatNewMail">compose+</button>
+            <button v-on:click="setMore('all')" v-bind:value="filterBy.moreFilter" type="button">inbox</button> |
+            <button v-on:click="setMore('stared')" v-bind:value="filterBy.moreFilter" type="button">stared</button> |
+            <button v-on:click="setMore('sent')" v-bind:value="filterBy.moreFilter" type="button">sent mail</button> |
+            <button v-on:click="setMore('drafs')" v-bind:value="filterBy.moreFilter" type="button">drafts</button> 
             </nav>
 
        </section>
     `,
-    methods: {
-
+    data() {
+        return {
+            filterBy: {
+                subject: '',
+                moreFilter: 'all'
+            },
+            
+        };
     },
-    components: {
-
+    beforeMount() {
+        this.filter()
+    },
+    methods: {
+        setFilterSub(){
+            console.log(this.filterBy.subject)
+            this.filter()
+        },
+        setMore(value) {
+            this.filterBy.moreFilter = value
+            console.log(value)
+            this.filter()
+        },
+        filter(){
+            this.$emit('filtered', { ...this.filterBy });
+            //deep copy
+            // this.$emit('filtered', JSON.parse(JSON.stringify(this.filterBy)));
+        },
+        creatNewMail() {
+            console.log('creat new mail')
+        }
     }
 };
