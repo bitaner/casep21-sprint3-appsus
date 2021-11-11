@@ -9,6 +9,9 @@ export default {
                 <div class="actions">
                     <button @click="remove(note.id)">X</button>
                     <button @click="edit(note.id)">✏</button>
+                    <button @click="setBGC(note.id)">🎨</button>
+                    <input type="color" @change="setBGCinput(note.id)">
+
                     <!-- <router-link :to="'/note/'+note.id">Details</router-link> -->
                     <!-- <router-link :to="'/note/edit/'+note.id">Edit</router-link> -->
                 </div>
@@ -22,8 +25,12 @@ export default {
         edit(noteId) {
             this.$emit('edit', noteId)
         },
-        log() {
-            console.log('Logging.....')
+        setBGC(noteId) {
+            // this.$emit('setBGC', noteId)
+            console.log(noteId)
+        },
+        setBGCinput(noteId, value) {
+            console.log(noteId, value)
         }
     },
     components: {

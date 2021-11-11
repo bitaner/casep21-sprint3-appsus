@@ -1,3 +1,31 @@
 .note-app {
     background-color: darksalmon;
 }
+
+.note img {
+    height: 150px;
+    /* object-fit: */
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    list-style: none;
+    padding-inline-start: none;
+    margin: none;
+}
+
+.notes-gallery {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.note-preview-container {
+    background-color: darkseagreen;
+    height: fit-content;
+    width: fit-content;
+    display: inline-block;
+    margin: 30px;
+}

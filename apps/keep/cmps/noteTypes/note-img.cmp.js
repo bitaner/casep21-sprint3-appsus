@@ -3,12 +3,10 @@ export default {
     props: ['note'],
     template: `
         <section class="img-note">
-            <p>
-                {{note.type}}
-                {{note.info.title}}
-                {{note.id}}       
-            </p>
             <img :src="note.info.url" alt="">
+            <h3>
+                {{note.info.title}}
+            </h3>
         </section>
     `,
     data() {
