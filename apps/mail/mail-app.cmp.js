@@ -70,7 +70,8 @@ export default {
     computed: {
         mailsToShow() {
             console.log('hi')
-            console.log(this.filterBy)
+            console.log(this.filterBy);
+            console.log(this.filterBy.moreFilter)
             const searchStr = this.filterBy.subject.toLowerCase();
             var mailToUser = this.mails.filter(mail => mail.to === "user@appsus.com")
             var mailFiltered = null;
