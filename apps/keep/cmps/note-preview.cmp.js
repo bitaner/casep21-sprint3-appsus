@@ -11,7 +11,7 @@ export default {
     },
     template: `
     <section v-if="note" class="note" v-bind:style="{backgroundColor:color}">
-                <component :note = "note" :is= "note.type" class="dynamic-note"></component>
+                <component :note = "note" :is= "note.type" class="dynamic-note" @updateText="updateText"></component>
                     <button @click="remove(note.id)">🗑</button>
                     <button @click="edit(note.id)">✏</button>
                     <button @click="setBGC(note.id)">🎨</button>
@@ -36,6 +36,10 @@ export default {
         edit(noteId) {
             console.log('edit', noteId)
             this.$emit('edit', noteId)
+        },
+        updateText(note) {
+            console.log('2', note)
+            this.$emit('textEdit', note)
         },
         setBGC(noteId) {
             // this.$emit('setBGC', noteId)

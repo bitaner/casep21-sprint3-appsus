@@ -41,3 +41,8 @@ ul {
 .dynamic-note {
     background-color: inherit;
 }
+
+.text-note {
+    background-color: inherit;
+    margin: 5px
+}

@@ -1,15 +1,25 @@
+import { utilService } from '../../../../services/util-service.js';
+
+// make the change save and update storage
+
 export default {
 
     props: ['note'],
     template: `
-       <section class="text-note">
-            <p>
-               {{note.info.txt}}
-            </p>
+       <section>
+           <textarea class="text-note" v-model="note.info.txt"  @input="updateText"></textarea>
         </section> 
     `,
     data() {
-        return {};
+        return {
+            // text: this.note.info.txt
+        };
     },
-    methods: {}
+    methods: {
+        updateText() {
+
+            console.log(this.note)
+            this.$emit('updateText', this.note)
+        }
+    }
 }

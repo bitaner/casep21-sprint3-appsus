@@ -5,7 +5,7 @@ export default {
     template: `
         <ul class="note-list">
             <li v-for="note in notes" :key="note.id" class="note-preview-container" v-bind:style="{backgroundColor:color}">
-                <note-preview :note="note"  @remove="removeNote" @edit="editNote"/>
+                <note-preview :note="note"  @remove="removeNote" @edit="editNote" @textEdit="textEdit"/>
                 <div class="actions">
                     <!-- <button @click="remove(note.id)">🗑</button>
                     <button @click="edit(note.id)">✏</button>
@@ -51,29 +51,12 @@ export default {
         editNote(id) {
             console.log('editing note: ', id)
         },
-        // removeNote(id) {
-        //     noteService.remove(id)
-        //         .then(() => {
-        //             const msg = {
-        //                 txt: 'Deleted succesfully',
-        //                 type: 'success'
-        //             }
-        //             eventBus.$emit('showMsg', msg)
-        //             this.notes = this.notes.filter(note => note.id !== id)
-        //         })
-        //         .catch(err => {
-        //             console.log('err', err)
-        //             const msg = {
-        //                 txt: 'Error. Please try later',
-        //                 type: 'error'
-        //             }
-        //             eventBus.$emit('showMsg', msg)
-        //         })
-        // }
+        textEdit(note) {
+            console.log('3', note)
+            this.$emit('textEdit', note)
+        }
     },
     components: {
         notePreview
     }
 };
-
-// this.$refs.colorInput.value this is how we catch elemnt

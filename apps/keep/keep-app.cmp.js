@@ -15,7 +15,7 @@ export default {
             <h1>notes</h1>
         <note-filter @filtered="setFilter"></note-filter>
         <note-add @noteToAdd="loadNotes"></note-add>
-        <note-list :notes="notesToShow"  @remove="removeNote" @edit="editNote" class="notes-gallery"></note-list>
+        <note-list :notes="notesToShow"  @remove="removeNote" @edit="editNote" class="notes-gallery" @textEdit="textEdit"></note-list>
         </section>
     `,
     data() {
@@ -62,6 +62,11 @@ export default {
                     }
                     eventBus.$emit('showMsg', msg)
                 })
+        },
+        textEdit(note) {
+            console.log('4', note)
+            noteService.save(note)
+
         }
     },
     computed: {
