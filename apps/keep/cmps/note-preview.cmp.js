@@ -1,7 +1,6 @@
-import noteTxt from '/noteTypes/note-txt.cmp.js'
-import noteImg from '/noteTypes/note-img.cmp.js'
-import noteTodos from '/noteTypes/note-todos.cmp.js'
-
+import noteTxt from './noteTypes/note-txt.cmp.js'
+import noteImg from './noteTypes/note-img.cmp.js'
+import noteTodos from './noteTypes/note-todos.cmp.js'
 
 export default {
     props: ['note'],
