@@ -30,8 +30,10 @@ export default {
         const { mailId } = this.$route.params;
         console.log(mailId)
         mailservice.getById(mailId)
-            .then(mail=> {this.mail= mail,
-            console.log(mail)});
+            .then(mail => {
+                this.mail = mail,
+                    console.log(mail)
+            });
     },
     components: {
         longText,
@@ -65,7 +67,7 @@ export default {
             else if (this.mail.listPrice.currencyCode === 'EUR') return '€';
             else if (this.mail.listPrice.currencyCode === 'USD') return '$';
         },
-        sale(){
+        sale() {
             if (this.mail.listPrice.isOnSale) return 'sale!'
             else return ''
         }

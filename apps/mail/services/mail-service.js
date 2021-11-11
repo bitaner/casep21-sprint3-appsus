@@ -1,5 +1,5 @@
-import { utilService } from '.util-service';
-import { storageService } from '.async-storage-service.js';
+import { utilService } from './util-service.js';
+import { storageService } from './async-storage-service.js';
 
 const MAILS_KEY = 'mails';
 var gMails
