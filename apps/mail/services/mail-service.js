@@ -1,45 +1,45 @@
-import { utilService } from './util-service.js';
-import { storageService } from './async-storage-service.js';
+import { utilService } from '.util-service';
+import { storageService } from '.async-storage-service.js';
 
 const MAILS_KEY = 'mails';
 var gMails
 _createMails()
 
 export const mailService = {
-  query,
-  remove,
-  // save,
-  // getEmptymail,
-  getById,
-  // saveReview,
+    query,
+    remove,
+    // save,
+    // getEmptymail,
+    getById,
+    // saveReview,
 };
 
 function query() {
-  return storageService.query(MAILS_KEY);
+    return storageService.query(MAILS_KEY);
 }
 
 function _createMails() {
-  storageService.query(MAILS_KEY)
-    .then((mails) => {
-      gMails = mails
-      console.log(gMails)
-      if (!gMails || !gMails.length) {
-        gMails = [
-          { id: 'e100', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: false, isRead: false, sentAt: 1551133930594, to: 'user@appsus.com' },
-          { id: 'e101', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: true, isRead: true, sentAt: 1551133930594, to: 'user@appsus.com' },
-          { id: 'e102', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: true, isRead: false, sentAt: 1551133930594, to: 'user@appsus.com' },
-          { id: 'e103', subject: 'have a nice day!', body: 'Would love to catch up sometimes', showMore: false, stared: true, isRead: true, sentAt: 1551133930594, to: 'user@appsus.com' },
-          { id: 'e104', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: false, isRead: false, sentAt: 1551133930594, to: 'user@appsus.com' },
-          { id: 'e105', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: false, isRead: false, sentAt: 1551133930594, to: 'momo@momo.com' },
-          { id: 'e106', subject: 'we were on a break!', body: 'Would love to catch up sometimes', showMore: false, stared: true, isRead: true, sentAt: 1551133930594, to: 'momo@momo.com' },
-          { id: 'e107', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: true, isRead: false, sentAt: 1551133930594, to: 'momo@momo.com' },
-          { id: 'e108', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: true, isRead: true, sentAt: 1551133930594, to: 'momo@momo.com' },
-          { id: 'e109', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: false, isRead: false, sentAt: 1551133930594, to: 'momo@momo.com' },
-        ]
-        utilService.saveToStorage(MAILS_KEY, gMails);
-      }
-      return gMails;
-    })
+    storageService.query(MAILS_KEY)
+        .then((mails) => {
+            gMails = mails
+            console.log(gMails)
+            if (!gMails || !gMails.length) {
+                gMails = [
+                    { id: 'e100', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: false, isRead: false, sentAt: 1551133930594, to: 'user@appsus.com' },
+                    { id: 'e101', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: true, isRead: true, sentAt: 1551133930594, to: 'user@appsus.com' },
+                    { id: 'e102', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: true, isRead: false, sentAt: 1551133930594, to: 'user@appsus.com' },
+                    { id: 'e103', subject: 'have a nice day!', body: 'Would love to catch up sometimes', showMore: false, stared: true, isRead: true, sentAt: 1551133930594, to: 'user@appsus.com' },
+                    { id: 'e104', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: false, isRead: false, sentAt: 1551133930594, to: 'user@appsus.com' },
+                    { id: 'e105', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: false, isRead: false, sentAt: 1551133930594, to: 'momo@momo.com' },
+                    { id: 'e106', subject: 'we were on a break!', body: 'Would love to catch up sometimes', showMore: false, stared: true, isRead: true, sentAt: 1551133930594, to: 'momo@momo.com' },
+                    { id: 'e107', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: true, isRead: false, sentAt: 1551133930594, to: 'momo@momo.com' },
+                    { id: 'e108', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: true, isRead: true, sentAt: 1551133930594, to: 'momo@momo.com' },
+                    { id: 'e109', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: false, isRead: false, sentAt: 1551133930594, to: 'momo@momo.com' },
+                ]
+                utilService.saveToStorage(MAILS_KEY, gMails);
+            }
+            return gMails;
+        })
 }
 
 
@@ -59,8 +59,8 @@ function _createMails() {
 // }
 
 function remove(mailId) {
-  // return Promise.reject('Big balagan!')
-  return storageService.remove(MAILS_KEY, mailId);
+    // return Promise.reject('Big balagan!')
+    return storageService.remove(MAILS_KEY, mailId);
 }
 
 // function save(mail) {
@@ -69,6 +69,5 @@ function remove(mailId) {
 // }
 
 function getById(mailId) {
-  return storageService.get(MAILS_KEY, mailId);
+    return storageService.get(MAILS_KEY, mailId);
 }
-
