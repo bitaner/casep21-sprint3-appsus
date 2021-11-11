@@ -1,3 +1,6 @@
+
+
+
 export default {
     props: ['mails'],
     template: `
@@ -21,6 +24,7 @@ export default {
                 subject: '',
                 moreFilter: 'all'
             },
+            newMail: 'newMail',
             
         };
     },
@@ -44,6 +48,7 @@ export default {
         },
         creatNewMail() {
             console.log('creat new mail')
+            this.$emit('newMail', newMail);
         }
     }
 };

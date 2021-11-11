@@ -10,10 +10,9 @@ import mailNav from './cmps/mail-nav.cmp.js';
 export default {
     template: `
         <section v-if="mails" class="mail-app app-main">
-            <mail-nav @filtered="setFilter" ></mail-nav>
-            <mail-add></mail-add>
+            <mail-nav @filtered="setFilter" @newMail="creatNewMail" ></mail-nav>
+            <mail-add v-if="newMail" @></mail-add>
             <div v-if="mails">
-            <!-- <mail-filter @filtered="setFilter"></mail-filter> -->
             <mail-list v-if="filterBy" :mails="mailsToShow"  @remove="removemail"></mail-list>
             </div>
         </section>
@@ -23,6 +22,7 @@ export default {
             mails: null,
             selectedmail: null,
             filterBy: null,
+            newMail: null
         };
     },
     created() {
@@ -50,6 +50,9 @@ export default {
             console.log('hi')
             this.filterBy = filterBy;
 
+        },
+        creatNewMail(){
+            
         },
         removemail(id) {
             mailService.remove(id)

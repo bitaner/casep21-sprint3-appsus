@@ -1,5 +1,6 @@
 .mail-app {
-    background-color: lightblue;
+    background-color: white;
+    height: 90vh;
 }
 
 .mail-app {
@@ -9,13 +10,29 @@
 
 .mail-nav {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
-.mail-filter {
-    background-color: aqua;
+.mail-nav .nav{
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    width: 50%;
 }
 
+.mail-list{
+    height: 100%;
+    width: 100%;
+}
+
+.mail-edit{
+    position: absolute;
+    left: 25%;
+    bottom: 25%;
+    background-color: gray;
+    height: 20rem;
+    width: 20rem;
+}
 .mail-preview-container {
     border: 1px solid black;
     display: flex;
