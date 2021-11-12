@@ -17,17 +17,21 @@ export default {
         <span v-bind:class="togglePinnedClass">📍</span>
         <component :note = "note" :is= "note.type" class="dynamic-note" @updateText="updateText"></component>
         <button @click="remove(note.id)">🗑</button>
-        <button @click="edit(note.id)">✏</button>
+        <button @click="duplicate()">+1</button>
         <button @click="pin(note.id)">📌</button>
         <button @click="mail(note.id)">📧</button>
         <input ref="colorInput"  type="color"  v-model="color" @change="setBGCinput(note)"   >
     </section> 
     `,
     data() {
-        return { color: null }
+        return {
+            color: null,
+            isPinned: null
+
+        }
     },
     created() {
-
+        this.isPinned = this.note.isPinned
     },
     methods: {
         remove(noteId) {
@@ -40,28 +44,34 @@ export default {
         },
         updateText(note) {
             console.log('2', note)
-            this.$emit('textEdit', note)
+            eventBus.$emit('noteUpdate', note)
         },
         setBGCinput(note) {
             // console.log(this.note.backgroundColor)
             // console.log(note, this.color)
             this.note.backgroundColor = this.color
                 // console.log('after ', this.note.backgroundColor)
-            eventBus.$emit('setBGC', note)
+            eventBus.$emit('noteUpdate', note)
         },
         mail(noteId) {
             console.log('mail ', noteId)
         },
         pin(noteId) {
             console.log('pin ', noteId)
+            this.note.isPinned = !this.note.isPinned
+            eventBus.$emit('noteUpdate', this.note)
+        },
+        duplicate() {
+            eventBus.$emit('duplicate', this.note)
+
         }
     },
 
     computed: {
         togglePinnedClass() {
-            if (this.isPinned) return 'show'
-            else 'hide'
-        } // create classes ,  create condiiton that checks if pinned true false
+            if (!this.isPinned) return 'hide'
+            return ''
+        } // create classes ,  create conditon that checks if pinned true false
     },
 
 }

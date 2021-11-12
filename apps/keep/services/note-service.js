@@ -40,7 +40,7 @@ function _createNotes() {
                 gNotes = [{
                         id: "n101",
                         type: "note-txt",
-                        isPinned: true,
+                        isPinned: false,
                         info: {
                             txt: "Fullstack Me Baby!"
                         },
@@ -65,31 +65,7 @@ function _createNotes() {
                         type: "note-img",
                         info: {
                             url: "apps/keep/imgs/2.jpeg",
-                            title: "caparrrraaaa"
-                        },
-
-                        backgroundColor: '#b3b3a8'
-
-                    },
-                    {
-                        id: "n108",
-                        isPinned: false,
-                        type: "note-vid",
-                        info: {
-                            url: "apps/keep/imgs/2.jpeg",
-                            title: "caparrrraaaa"
-                        },
-
-                        backgroundColor: '#b3b3a8'
-
-                    },
-                    {
-                        id: "n109",
-                        isPinned: false,
-                        type: "note-vid",
-                        info: {
-                            url: "apps/keep/imgs/2.jpeg",
-                            title: "caparrrraaaa"
+                            txt: "caparrrraaaa"
                         },
 
                         backgroundColor: '#b3b3a8'
@@ -97,11 +73,11 @@ function _createNotes() {
                     },
                     {
                         id: "n104",
-                        isPinned: true,
-                        type: "note-img",
+                        isPinned: false,
+                        type: "note-vid",
                         info: {
-                            url: "apps/keep/imgs/1.jpeg",
-                            title: "if vue gives you errors, turn them to notes "
+                            url: "https://www.youtube.com/embed/g9bzrGBzSC4",
+                            txt: "caparrrraaaa"
                         },
 
                         backgroundColor: '#b3b3a8'
@@ -110,9 +86,33 @@ function _createNotes() {
                     {
                         id: "n105",
                         isPinned: false,
+                        type: "note-vid",
+                        info: {
+                            url: "https://www.youtube.com/embed/g9bzrGBzSC4",
+                            txt: "caparrrraaaa"
+                        },
+
+                        backgroundColor: '#b3b3a8'
+
+                    },
+                    {
+                        id: "n106",
+                        isPinned: false,
+                        type: "note-img",
+                        info: {
+                            url: "apps/keep/imgs/1.jpeg",
+                            txt: "if vue gives you errors, turn them to notes "
+                        },
+
+                        backgroundColor: '#b3b3a8'
+
+                    },
+                    {
+                        id: "n107",
+                        isPinned: false,
                         type: "note-todos",
                         info: {
-                            label: "you are fine the way you are",
+                            txt: "you are fine the way you are",
                             todos: [
                                 { txt: "Driving liscence", doneAt: null, id: '0' },
                                 { txt: "Coding power", doneAt: true, id: '1' },
@@ -125,11 +125,11 @@ function _createNotes() {
 
                     },
                     {
-                        id: "n106",
-                        isPinned: true,
+                        id: "n108",
+                        isPinned: false,
                         type: "note-todos",
                         info: {
-                            label: "you are getting it done",
+                            txt: "you are getting it done",
                             todos: [
                                 { txt: "baba", doneAt: null, id: '0' },
                                 { txt: "hello", doneAt: 187123411, id: '1' },

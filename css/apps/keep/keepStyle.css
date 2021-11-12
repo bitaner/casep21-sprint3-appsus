@@ -53,3 +53,7 @@ ul {
 .file-input {
     color: transparent;
 }
+
+.hide {
+    display: none;
+}

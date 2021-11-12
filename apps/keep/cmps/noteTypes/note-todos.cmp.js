@@ -12,7 +12,7 @@ export default {
     template: `
         <section class="todo-note">
             <h3>
-                {{note.info.label}}
+                {{note.info.txt}}
             </h3>
             <ul class="todo-list">
             <li v-for="(todo,idx) in note.info.todos">
@@ -57,7 +57,7 @@ export default {
         toggleMark() {
             console.log('togglemark')
             console.log(this.note.info.todos)
-            eventBus.$emit('toggleMark', this.note)
+            eventBus.$emit('noteUpdate', this.note)
         },
         // toggleDark() {
         //     this.isDark = !this.isDark

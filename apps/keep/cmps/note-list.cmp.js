@@ -5,7 +5,7 @@ export default {
     template: `
         <ul class="note-list">
             <li v-for="note in notes" :key="note.id" class="note-preview-container" v-bind:style="{backgroundColor:color}">
-                <note-preview :note="note"  @remove="removeNote" @edit="editNote" @textEdit="textEdit"/>
+                <note-preview :note="note"  @remove="removeNote" @edit="editNote" />
             </li>
         </ul>
     `,
@@ -36,11 +36,8 @@ export default {
         },
         editNote(id) {
             console.log('editing note: ', id)
-        },
-        textEdit(note) {
-            console.log('3', note)
-            this.$emit('textEdit', note)
         }
+
     },
     components: {
         notePreview

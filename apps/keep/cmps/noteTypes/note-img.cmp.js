@@ -8,7 +8,7 @@ export default {
         <section class="img-note">
             <img :src="note.info.url" alt="">
             <h3>
-                {{note.info.title}}
+                {{note.info.txt}}
             </h3>
             <label for="changeImg">Change image</label>
                 <input id="changeImg" type="text" @change="setImgUrl" v-model="selectedImgUrl" placeholder="Copy Img url path here">

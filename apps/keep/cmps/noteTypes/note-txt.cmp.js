@@ -17,7 +17,7 @@ export default {
     methods: {
         updateText() {
             // console.log(this.note)
-            eventBus.$emit('updateText', this.note)
+            eventBus.$emit('noteUpdate', this.note)
         }
     }
 }
