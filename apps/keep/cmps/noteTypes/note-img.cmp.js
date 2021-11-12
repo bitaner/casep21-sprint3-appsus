@@ -1,3 +1,6 @@
+import { eventBus } from '../../../../services/event-bus-service.js'
+
+
 export default {
 
     props: ['note'],
@@ -7,16 +10,22 @@ export default {
             <h3>
                 {{note.info.title}}
             </h3>
+            <label for="changeImg">Change image</label>
+                <input id="changeImg" type="text" @change="setImgUrl" v-model="selectedImgUrl" placeholder="Copy Img url path here">
         </section>
     `,
     data() {
         return {
-            // txt: '',
-        };
+            selectedImg: null,
+            selectedImgUrl: null
+        }
     },
     methods: {
-        // reportVal() {
-        //     this.$emit('setInput', this.txt);
-        // }
+
+        setImgUrl() {
+            console.log(this.selectedImgUrl)
+            this.note.info.url = this.selectedImgUrl
+            eventBus.$emit('noteUpdate', this.note)
+        }
     }
 }

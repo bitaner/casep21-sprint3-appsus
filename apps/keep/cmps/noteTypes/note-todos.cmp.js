@@ -37,7 +37,7 @@ export default {
             this.note.info.todos.splice(idx, 1)
                 // console.log('this.users', this.users);
             this.note.info.todos = this.note.info.todos.filter(u => u.id !== todoId)
-            eventBus.$emit('TodosUpdate', this.note)
+            eventBus.$emit('noteUpdate', this.note)
 
         },
         addTodo() {
@@ -51,7 +51,7 @@ export default {
             this.note.info.todos.push(newTodo)
                 // console.log(this.note)
             this.value = ''
-            eventBus.$emit('TodosUpdate', this.note)
+            eventBus.$emit('noteUpdate', this.note)
 
         },
         toggleMark() {

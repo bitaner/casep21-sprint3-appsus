@@ -2,27 +2,31 @@ export default {
     template: `
         <div class="note-filter">
             <label>Search</label>
-            <input @input="filter" v-model="filterBy.title" type="text" placeholder="Search...">
-            <!-- <label>From price</label>
-            <input @input="filter" v-model.number="filterBy.fromPrice" type="number" placeholder="Search...">
-            <label>To price</label>
-            <input @input="filter" v-model.number="filterBy.toPrice" type="number" placeholder="Search..."> -->
+            <input @input="filter" v-model="filterText" type="text" placeholder="Search...">
+            <label for="types">filter notes</label>
+            <select name="types" id="types" v-model="NoteType" @change="reportType" >
+                <option value="" >All</option>   
+                <option value="note-txt">Text</option>
+                <option value="note-img">Image</option>
+                <option value="note-todos">To-do</option>
+                <option value="note-vid">Video</option>
+            </select>
         </div>
     `,
     data() {
         return {
-            filterBy: {
-                title: '',
-                // fromPrice: 0,
-                // toPrice: Math.Infinity,
-            }
-        };
+            NoteType: null,
+            filterText: null
+        }
     },
     methods: {
+        reportType() {
+            // console.log(this.NoteType)
+            this.$emit('noteType', this.NoteType)
+        },
         filter() {
-            this.$emit('filtered', {...this.filterBy });
-            //deep copy
-            // this.$emit('filtered', JSON.parse(JSON.stringify(this.filterBy)));
+            // console.log(this.filterText)
+            this.$emit('filterText', this.filterText)
         }
     }
 }

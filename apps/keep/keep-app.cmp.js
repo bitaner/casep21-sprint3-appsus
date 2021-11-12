@@ -13,7 +13,7 @@ export default {
     template: `
         <section class="note-app app-main">
             <h1>notes</h1>
-        <note-filter @filtered="setFilter"></note-filter>
+        <note-filter @noteType="setFilter" @filterText="setFilterText"></note-filter>
         <note-add @noteToAdd="loadNotes"></note-add>
         <note-list :notes="notesToShow"  @remove="removeNote" @edit="editNote" class="notes-gallery" @textEdit="textEdit"></note-list>
         </section>
@@ -22,7 +22,8 @@ export default {
         return {
             notes: null,
             selectedNote: null,
-            filterBy: null
+            filterBy: null,
+            filterText: null
         }
     },
     created() {
@@ -30,8 +31,8 @@ export default {
 
         eventBus.$on('setBGC', this.setBGC)
         eventBus.$on('updateText', this.textEdit)
-        eventBus.$on('TodosUpdate', this.todosUpdate)
-        eventBus.$on('toggleMark', this.todosUpdate)
+        eventBus.$on('toggleMark', this.noteUpdate)
+        eventBus.$on('noteUpdate', this.noteUpdate)
     },
     methods: {
         loadNotes() {
@@ -45,6 +46,11 @@ export default {
         },
         setFilter(filterBy) {
             this.filterBy = filterBy
+                // console.log(this.filterBy)
+        },
+        setFilterText(filterText) {
+            this.filterText = filterText
+                // console.log(this.filterText)
         },
         editNote(id) {
             console.log('editing note: ', id)
@@ -80,7 +86,7 @@ export default {
             noteService.save(note)
                 // })
         },
-        todosUpdate(note) {
+        noteUpdate(note) {
             console.log('arrived to bus', note)
                 // console.log('4', note)
             noteService.save(note)
@@ -90,12 +96,44 @@ export default {
     computed: {
         notesToShow() {
             if (!this.filterBy) return this.notes
-            const searchStr = this.filterBy.title.toLowerCase()
+                // const searchStr = this.filterBy
 
             const notesToShow = this.notes.filter(note => {
-                return note.title.toLowerCase().includes(searchStr)
+                return note.type === this.filterBy
             })
+
+            // if (this.filterText) {
+            //     return notesToShow.filter(note => {
+            //         return note.includes(this.filterText)
+            //     })
+            // } else {
             return notesToShow
+                // }
         }
     },
 }
+
+// mailsToShow() {
+//     console.log('hi')
+//     console.log(this.filterBy);
+//     var mailToUser = this.mails.filter(mail => mail.to === "user@appsus.com")
+//     const searchStr = this.filterBy.subject
+//     var mailFiltered = null;
+//     if (this.filterBy.moreFilter === 'sent'){
+//         if (!searchStr) return mailFiltered = this.mails.filter(mail => mail.to !== "user@appsus.com");
+//         else return mailFiltered = this.mails.filter(mail => mail.to !== "user@appsus.com" && mail.subject.toLowerCase().includes(searchStr));
+//     }
+//     switch (this.filterBy.moreFilter) {
+//         case 'all': mailFiltered = this.mails.filter(mail => mail.to === "user@appsus.com");
+//             break
+//         case 'read': mailFiltered = mailToUser.filter(mail => mail.isRead === true);
+//             break
+//         case 'unread': mailFiltered = mailToUser.filter(mail => mail.isRead === false);
+//             break
+//         case 'stared': mailFiltered = mailToUser.filter(mail => mail.stared === true);
+//         }
+//     if (searchStr) {
+//         return mailFiltered.filter(mail => mail.subject.toLowerCase().includes(searchStr))
+//     } else return mailFiltered;
+
+// }

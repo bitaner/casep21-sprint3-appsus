@@ -49,3 +49,7 @@ ul {
 .overLine {
     text-decoration: overline;
 }
+
+.file-input {
+    color: transparent;
+}

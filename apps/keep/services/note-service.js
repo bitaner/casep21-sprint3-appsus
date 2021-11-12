@@ -1,8 +1,7 @@
-// import { utilService } from '.../services/util-service.js'
-import { storageService } from '../../../services/async-storage-service.js';
+import { storageService } from '../../../services/async-storage-service.js'
 import { utilService } from '../../../services/util-service.js'
 
-const NOTES_KEY = 'notes';
+const NOTES_KEY = 'notes'
 var gNotes
 _createNotes()
 
@@ -14,22 +13,22 @@ export const noteService = {
 };
 
 function query() {
-    return storageService.query(NOTES_KEY);
+    return storageService.query(NOTES_KEY)
 }
 
 
 function remove(noteId) {
     // return Promise.reject('Big balagan!')
-    return storageService.remove(NOTES_KEY, noteId);
+    return storageService.remove(NOTES_KEY, noteId)
 }
 
 function save(note) {
-    if (note.id) return storageService.put(NOTES_KEY, note);
-    else return storageService.post(NOTES_KEY, note);
+    if (note.id) return storageService.put(NOTES_KEY, note)
+    else return storageService.post(NOTES_KEY, note)
 }
 
 function getById(noteId) {
-    return storageService.get(NOTES_KEY, noteId);
+    return storageService.get(NOTES_KEY, noteId)
 }
 
 function _createNotes() {
@@ -62,6 +61,7 @@ function _createNotes() {
                     },
                     {
                         id: "n103",
+                        isPinned: false,
                         type: "note-img",
                         info: {
                             url: "apps/keep/imgs/2.jpeg",
@@ -72,7 +72,32 @@ function _createNotes() {
 
                     },
                     {
+                        id: "n108",
+                        isPinned: false,
+                        type: "note-vid",
+                        info: {
+                            url: "apps/keep/imgs/2.jpeg",
+                            title: "caparrrraaaa"
+                        },
+
+                        backgroundColor: '#b3b3a8'
+
+                    },
+                    {
+                        id: "n109",
+                        isPinned: false,
+                        type: "note-vid",
+                        info: {
+                            url: "apps/keep/imgs/2.jpeg",
+                            title: "caparrrraaaa"
+                        },
+
+                        backgroundColor: '#b3b3a8'
+
+                    },
+                    {
                         id: "n104",
+                        isPinned: true,
                         type: "note-img",
                         info: {
                             url: "apps/keep/imgs/1.jpeg",
@@ -84,6 +109,7 @@ function _createNotes() {
                     },
                     {
                         id: "n105",
+                        isPinned: false,
                         type: "note-todos",
                         info: {
                             label: "you are fine the way you are",
@@ -100,6 +126,7 @@ function _createNotes() {
                     },
                     {
                         id: "n106",
+                        isPinned: true,
                         type: "note-todos",
                         info: {
                             label: "you are getting it done",
@@ -112,14 +139,12 @@ function _createNotes() {
                         },
 
                         backgroundColor: '#b3b3a8'
-
                     },
                 ]
-                utilService.saveToStorage(NOTES_KEY, gNotes);
+                utilService.saveToStorage(NOTES_KEY, gNotes)
             }
-            console.log(gNotes)
-            return gNotes;
+            // console.log(gNotes)
+            return gNotes
         })
-    return gNotes;
-
+    return gNotes
 }
