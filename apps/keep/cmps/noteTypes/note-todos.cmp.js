@@ -59,10 +59,6 @@ export default {
             console.log(this.note.info.todos)
             eventBus.$emit('noteUpdate', this.note)
         },
-        // toggleDark() {
-        //     this.isDark = !this.isDark
-        // }
-
     },
     computed: {
         toggleOverlineClass(todo) {

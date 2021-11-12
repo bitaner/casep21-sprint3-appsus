@@ -10,7 +10,8 @@ export const noteService = {
     remove,
     save,
     getById,
-};
+    add
+}
 
 function query() {
     return storageService.query(NOTES_KEY)
@@ -25,6 +26,10 @@ function remove(noteId) {
 function save(note) {
     if (note.id) return storageService.put(NOTES_KEY, note)
     else return storageService.post(NOTES_KEY, note)
+}
+
+function add(note) {
+    return storageService.post(NOTES_KEY, note)
 }
 
 function getById(noteId) {
@@ -42,103 +47,42 @@ function _createNotes() {
                         type: "note-txt",
                         isPinned: false,
                         info: {
-                            txt: "Fullstack Me Baby!"
+                            txt: "insert text here"
                         },
-
-                        backgroundColor: '#b3b3a8'
-
+                        backgroundColor: '#FBE8A6'
                     },
                     {
                         id: "n102",
-                        type: "note-txt",
                         isPinned: false,
+                        type: "note-img",
                         info: {
-                            txt: "fafa!"
+                            url: "apps/keep/imgs/JPEG-1.png",
+                            txt: "add an image link here"
                         },
-
-                        backgroundColor: '#b3b3a8'
-
+                        backgroundColor: '#FBE8A6'
                     },
                     {
                         id: "n103",
                         isPinned: false,
-                        type: "note-img",
+                        type: "note-vid",
                         info: {
-                            url: "apps/keep/imgs/2.jpeg",
-                            txt: "caparrrraaaa"
+                            url: "https://www.youtube.com/embed/g9bzrGBzSC4",
+                            txt: "add a video link here"
                         },
-
-                        backgroundColor: '#b3b3a8'
-
+                        backgroundColor: '#FBE8A6'
                     },
                     {
                         id: "n104",
                         isPinned: false,
-                        type: "note-vid",
-                        info: {
-                            url: "https://www.youtube.com/embed/g9bzrGBzSC4",
-                            txt: "caparrrraaaa"
-                        },
-
-                        backgroundColor: '#b3b3a8'
-
-                    },
-                    {
-                        id: "n105",
-                        isPinned: false,
-                        type: "note-vid",
-                        info: {
-                            url: "https://www.youtube.com/embed/g9bzrGBzSC4",
-                            txt: "caparrrraaaa"
-                        },
-
-                        backgroundColor: '#b3b3a8'
-
-                    },
-                    {
-                        id: "n106",
-                        isPinned: false,
-                        type: "note-img",
-                        info: {
-                            url: "apps/keep/imgs/1.jpeg",
-                            txt: "if vue gives you errors, turn them to notes "
-                        },
-
-                        backgroundColor: '#b3b3a8'
-
-                    },
-                    {
-                        id: "n107",
-                        isPinned: false,
                         type: "note-todos",
                         info: {
-                            txt: "you are fine the way you are",
+                            txt: "add todo's here",
                             todos: [
-                                { txt: "Driving liscence", doneAt: null, id: '0' },
-                                { txt: "Coding power", doneAt: true, id: '1' },
-                                { txt: "Coding power", doneAt: null, id: '1' },
-                                { txt: "Coding power", doneAt: 187111111, id: '1' }
+                                { txt: "not done", doneAt: null, id: '0' },
+                                { txt: "done", doneAt: true, id: '1' },
                             ]
                         },
-
-                        backgroundColor: '#b3b3a8'
-
-                    },
-                    {
-                        id: "n108",
-                        isPinned: false,
-                        type: "note-todos",
-                        info: {
-                            txt: "you are getting it done",
-                            todos: [
-                                { txt: "baba", doneAt: null, id: '0' },
-                                { txt: "hello", doneAt: 187123411, id: '1' },
-                                { txt: "finish him", doneAt: null, id: '2' },
-                                { txt: "yalla sa ", doneAt: 2323, id: '3' }
-                            ]
-                        },
-
-                        backgroundColor: '#b3b3a8'
+                        backgroundColor: '#FBE8A6'
                     },
                 ]
                 utilService.saveToStorage(NOTES_KEY, gNotes)

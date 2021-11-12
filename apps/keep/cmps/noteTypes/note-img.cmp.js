@@ -1,5 +1,6 @@
 import { eventBus } from '../../../../services/event-bus-service.js'
 
+// hide edit section
 
 export default {
 

@@ -1,4 +1,7 @@
+// problem with search txt 
+
 export default {
+
     template: `
         <div class="note-filter">
             <label>Search</label>
