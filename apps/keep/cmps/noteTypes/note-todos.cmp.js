@@ -17,7 +17,7 @@ export default {
             <ul class="todo-list">
             <li v-for="(todo,idx) in note.info.todos">
             <input type="checkbox" v-bind:checked="todo.doneAt" @click="toggleMark" >
-            <span v-bind:class="toggleOverlineClass" >{{todo.txt}}</span>
+            <span v-bind:class="toggleOverlineClass" @click="" >{{todo.txt}}</span>
             <button v-on:click="removeTodo(todo.id)">X</button>    
             </li>
            <input type="text" v-model="value" placeholder="i need to do..." @change="addTodo">

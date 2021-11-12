@@ -17,7 +17,7 @@ export default {
                     <button @click="edit(note.id)">✏</button>
                     <button @click="pin(note.id)">📌</button>
                     <button @click="mail(note.id)">📧</button>
-                    <input ref="colorInput" value="#ff0080" type="color"  v-model="color" @change="setBGCinput(note)"   >
+                    <input ref="colorInput"  type="color"  v-model="color" @change="setBGCinput(note)"   >
     </section> 
     `,
     data() {
