@@ -1,14 +1,22 @@
+/* /צהוב  #FBE8A6,
+כתום #F4976C, notes
+ #303C6C כחול,
+  #B4DFE5 תכלת כהה, bgc
+  #D2FDFF תכלת בהיר */
+
 .note-app {
-    background-color: darksalmon;
+    background-color: #B4DFE5;
 }
 
 .note img {
     height: 150px;
-    /* object-fit: */
+    margin: 20px;
 }
 
 li {
     list-style: none;
+    padding-inline-start: none;
+    margin: none;
 }
 
 ul {
@@ -20,22 +28,52 @@ ul {
 .notes-gallery {
     display: flex;
     flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px;
+    padding: 10px;
 }
 
 .note-preview-container {
-    background-color: rgb(206, 197, 122);
-    /* height: fit-content;
-    width: fit-content;
-    display: inline-block;
-    margin: 30px; */
-}
-
-.note {
-    background-color: darkseagreen;
     height: fit-content;
     width: fit-content;
     display: inline-block;
-    /* margin: 30px; */
+    border-radius: 20px;
+}
+
+.note {
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+}
+
+.dynamic-note {
+    border-radius: 20px;
+}
+
+
+/* .note-pin {
+    position: absolute;
+    z-index: 9;
+} */
+
+.note-btn {
+    background-color: inherit;
+    border: none;
+    border-radius: 5px;
+    margin: 5px
+}
+
+.note-btn:hover {
+    cursor: pointer;
+}
+
+.note-color {
+    border: 1px solid rgb(172, 155, 155);
+    padding: 0;
+    margin: 0;
 }
 
 .dynamic-note {
@@ -44,6 +82,9 @@ ul {
 
 .text-note {
     background-color: inherit;
+    border: none;
+    margin: 20px;
+    font-size: 1.2rem;
 }
 
 .overLine {

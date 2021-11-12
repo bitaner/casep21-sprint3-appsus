@@ -1,8 +1,6 @@
 import { utilService } from '../../../../services/util-service.js'
 import { eventBus } from '../../../../services/event-bus-service.js'
 
-// make the change save and update storage
-
 export default {
 
     props: ['note'],

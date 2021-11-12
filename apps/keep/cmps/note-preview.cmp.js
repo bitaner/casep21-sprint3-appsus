@@ -4,6 +4,8 @@ import noteVid from './noteTypes/note-video.cmp.js'
 import noteTodos from './noteTypes/note-todos.cmp.js'
 import { eventBus } from '../../../services/event-bus-service.js'
 
+// fix- pin , mail 
+
 export default {
     props: ['note'],
     components: {
@@ -14,13 +16,15 @@ export default {
     },
     template: `
     <section v-if="note" class="note" v-bind:style="{backgroundColor:note.backgroundColor}">
-        <span v-bind:class="togglePinnedClass">📍</span>
+        <span v-bind:class="togglePinnedClass" class="note-pin">📍</span>
         <component :note = "note" :is= "note.type" class="dynamic-note" @updateText="updateText"></component>
-        <button @click="remove(note.id)">🗑</button>
-        <button @click="duplicate()">+1</button>
-        <button @click="pin(note.id)">📌</button>
-        <button @click="mail(note.id)">📧</button>
-        <input ref="colorInput"  type="color"  v-model="color" @change="setBGCinput(note)"   >
+        <section class="note-btns-container">
+            <button @click="remove(note.id)" class="note-btn" title="Delete">🗑</button>
+            <button @click="duplicate()" class="note-btn" title="Duplicate">+1</button>
+            <button @click="pin(note.id)" class="note-btn" title="Pin">📌</button>
+            <button @click="mail(note.id)" class="note-btn" title="send as E-mail">📧</button>
+            <input ref="colorInput"  type="color"  v-model="color" @change="setBGCinput(note)" class="note-btn note-color" title="Set note color"  >
+        </section>
     </section> 
     `,
     data() {
@@ -71,7 +75,7 @@ export default {
         togglePinnedClass() {
             if (!this.isPinned) return 'hide'
             return ''
-        } // create classes ,  create conditon that checks if pinned true false
+        }
     },
 
 }

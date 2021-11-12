@@ -7,38 +7,6 @@ body {
     background-color: #B4DFE5;
 }
 
-.notes-gallery {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.note-preview-container {
-    background-color: darkseagreen;
-    height: fit-content;
-    width: fit-content;
-    display: inline-block;
-    margin: 30px;
-}
-
-
-/* 
-.note {
-    background-color: darkseagreen;
-    height: fit-content;
-    width: fit-content;
-    display: inline-block;
-    margin: 30px;
-} */
-
-.note img {
-    height: 150px;
-    /* object-fit: */
-}
-
-li {
-    list-style: none;
-}
-
 .bold {
     font-weight: bold;
     font-size: 1.2rem;

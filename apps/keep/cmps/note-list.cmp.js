@@ -1,5 +1,7 @@
 import notePreview from './note-preview.cmp.js'
 
+// check if emits neccesry
+
 export default {
     props: ['notes'],
     template: `
@@ -42,4 +44,4 @@ export default {
     components: {
         notePreview
     }
-};
+}

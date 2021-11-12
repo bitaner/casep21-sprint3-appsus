@@ -33,6 +33,7 @@ export default {
 
         eventBus.$on('noteUpdate', this.noteUpdate)
         eventBus.$on('duplicate', this.duplicate)
+        eventBus.$on('noteAdd', this.noteAdd)
     },
     methods: {
         loadNotes() {
@@ -78,53 +79,21 @@ export default {
             noteCopy.id = utilService.makeId()
             this.notes.push(noteCopy)
             noteService.save(noteCopy)
+        },
+        noteAdd(note) {
+            console.log('new note', note)
+            this.notes.push(note)
+            noteService.add(note)
+            noteService.save(note)
         }
     },
     computed: {
         notesToShow() {
-
             if (!this.filterBy) return this.notes
-
             var notesToShow = this.notes.filter(note => {
                 return note.type === this.filterBy
             })
-
             return notesToShow
         }
     },
 }
-
-// mailsToShow() {
-
-//     var mailToUser = this.mails.filter(mail => mail.to === "user@appsus.com")
-//     const searchStr = this.filterBy.subject
-//     var mailFiltered = null;
-//     if (this.filterBy.moreFilter === 'sent') {
-//         if (!searchStr) {
-//             mailFiltered = this.mails.filter(mail => mail.to !== "user@appsus.com")
-//             return mailFiltered.sort((a, b) => (b.sentAt - a.sentAt))
-//         } else {
-//             mailFiltered = this.mails.filter(mail => {
-//                 return (mail.to !== "user@appsus.com" &&
-//                     (mail.subject.toLowerCase().includes(searchStr) || mail.body.toLowerCase().includes(searchStr)))
-//             })
-//             return mailFiltered.sort((a, b) => (b.sentAt - a.sentAt))
-//         };
-//     }
-//     switch (this.filterBy.moreFilter) {
-//         case 'all': mailFiltered = this.mails.filter(mail => mail.to === "user@appsus.com");
-//             break
-//         case 'read': mailFiltered = mailToUser.filter(mail => mail.isRead === true);
-//             break
-//         case 'unread': mailFiltered = mailToUser.filter(mail => mail.isRead === false);
-//             break
-//         case 'stared': mailFiltered = mailToUser.filter(mail => mail.stared === true);
-//     }
-//     if (searchStr) {
-//         mailFiltered.filter(mail => {
-//             return (mail.subject.toLowerCase().includes(searchStr) || mail.body.toLowerCase().includes(searchStr))
-//         })
-//         return mailFiltered.sort((a, b) => (b.sentAt - a.sentAt))
-//     } else return mailFiltered;
-
-// }
