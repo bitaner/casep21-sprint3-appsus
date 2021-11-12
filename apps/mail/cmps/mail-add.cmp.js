@@ -16,9 +16,9 @@ export default {
                 <input v-model="mailCC" type="text" placeholder="Cc:">
                 <input v-model="mailBcc" type="text" placeholder="Bcc:">
                 <input v-model="mailToEdit.subject" type="text" placeholder="subject">
-                <textarea v-model="mailToEdit.body"></textarea>
-                <button type="submit">send</button>
-                <button type="button" v-on:click="closeModal">trash</button>
+                <textarea v-model="mailToEdit.body"  rows="32"></textarea>
+                <button type="submit" class="mailSend"><i class="fas fa-paper-plane"></i></button>
+                <button type="button" v-on:click="closeModal" class="mailTrash"><i class="fas fa-trash"></i></button>
             </form>
         </section>
     `,

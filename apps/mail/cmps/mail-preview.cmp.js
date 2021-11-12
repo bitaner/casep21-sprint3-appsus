@@ -3,8 +3,8 @@ export default {
     template: `
         <div v-if="mail" class="mail-preview">
             <p>{{mail.subject}}</p>
-            <p>{{mail.body}}</p>
-            <p>{{changeDateFormat}}</p>
+            <p class="mailBody">{{mail.body}}</p>
+            <p class="mailDate">{{changeDateFormat}}</p>
         </div>
     `,
     created() {
@@ -12,10 +12,6 @@ export default {
     },
     computed: {
         changeDateFormat() {
-
-
-           
-
             var date = this.mail.sentAt;
             var date = new Date(+date)
             this.checkIfToday(date)

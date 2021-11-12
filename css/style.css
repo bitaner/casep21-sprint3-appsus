@@ -1,8 +1,10 @@
-@import './apps/book/bookStyle.css';
+/* @import './apps/book/bookStyle.css'; */
 @import './apps/keep/keepStyle.css';
 @import './apps/mail/mailStyle.css';
+
+/* colores: #FBE8A6, #F4976C, #3030C6C , #B4DFE5 ,#D2FDFF */
 body {
-    background-color: #f6e0bf;
+    background-color: #B4DFE5;
 }
 
 .notes-gallery {

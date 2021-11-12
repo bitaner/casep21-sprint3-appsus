@@ -2,7 +2,8 @@ export default {
     props:['mails'],
     template: `
        <div v-if="mails" class="container progress-bar">
-           <div>{{percent}}%</div>
+           <div class="percent">{{percent}}%</div>
+           
            <div class="loading-bar">
                 <div class="percentage" :style="{'width': percentage + '%'}">
                 </div>

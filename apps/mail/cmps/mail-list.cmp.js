@@ -12,9 +12,8 @@ export default {
                     <mail-preview :mail="mail" @click.native="log" />
                     
                     <div class="actions">
-                    <button @click.stop="remove(mail.id)">delete</button>
-                    <router-link :to="'/mail/'+mail.id">read?</router-link>
-                    <router-link :to="'/mail/edit/'+mail.id">Edit</router-link>
+                    <button @click.stop="remove(mail.id)"><i class="fas fa-trash"></i></button>
+                    <button @click.stop="mail.isRead = !mail.isRead" type="button"><i v-bind:class="setEnvelop(mail)"></i></button>
                     </div>
                 </div>
 
@@ -40,8 +39,10 @@ export default {
             if (!this.mails[index].showMore) {
                 this.mails[index].showMore = true;
                 this.mails[index].isRead = true
+
             } else {
                 this.mails[index].showMore = false;
+
             }
         },
         remove(mailId) {
@@ -54,6 +55,10 @@ export default {
             if (mail.isRead === false) return "bold"
             else return "unbold"
         },
+        setEnvelop(mail){
+            if (mail.isRead === false) return "far fa-envelope"
+            else return "far fa-envelope-open"
+        }
     },
     components: {
         mailPreview

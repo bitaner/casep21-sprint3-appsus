@@ -4,16 +4,16 @@ export default {
     props: ['mails'],
     template: `
        <section class="mail-nav">
-            <label>Search
+            <label>
             <input v-on:input="setFilterSub" v-model="filterBy.subject" type="text" placeholder="Search mail">
             </label>
-            <nav>
-            <button v-on:click="createNewMail">compose+</button>
-            <button v-on:click="setMore('all')" v-bind:value="filterBy.moreFilter" type="button">inbox</button> |
-            <button v-on:click="setMore('stared')" v-bind:value="filterBy.moreFilter" type="button">stared</button> |
-            <button v-on:click="setMore('sent')" v-bind:value="filterBy.moreFilter" type="button">sent mail</button> |
-            <button v-on:click="setMore('drafs')" v-bind:value="filterBy.moreFilter" type="button">drafts</button> 
             <progress-bar :mails="mails" ></progress-bar>
+            <nav>
+            <button v-on:click="createNewMail" class="compuse">Compose <i class="fas fa-plus"></i></button>
+            <button v-on:click="setMore('all')" v-bind:value="filterBy.moreFilter" v-bind:class="curMails('all')" type="button">Inbox <i class="fas fa-inbox"></i></button> |
+            <button v-on:click="setMore('stared')" v-bind:value="filterBy.moreFilter"  v-bind:class="curMails('stared')" type="button">Stared <i class="far fa-star"></i></button> |
+            <button v-on:click="setMore('sent')" v-bind:value="filterBy.moreFilter"  v-bind:class="curMails('sent')" type="button">Sent <i class="far fa-paper-plane"></i></button> |
+            <button v-on:click="setMore('drafs')" v-bind:value="filterBy.moreFilter"  v-bind:class="curMails('drafts')" type="button">Drafts <i class="fas fa-pencil-ruler"></i></button> 
             </nav>
 
        </section>
@@ -49,6 +49,11 @@ export default {
         createNewMail() {
             console.log('create new mail')
             this.$emit('newMail');
+        },
+        curMails(value){
+            if (value === this.filterBy.moreFilter){
+                return 'activeMails'
+            }
         }
     },
     components:{

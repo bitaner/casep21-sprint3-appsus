@@ -1,9 +1,11 @@
-.mail-app {
-    background-color: white;
-    height: 90vh;
-}
+ /*צהוב  #FBE8A6,כתום #F4976C, #303C6C כחול, #B4DFE5 תכלת כהה,#D2FDFF תכלת בהיר*/
 
+
+
+/* mail-app */
 .mail-app {
+    background-color:#B4DFE5;
+    height: 87vh;
     display: flex;
     flex-direction: row;
 }
@@ -11,24 +13,78 @@
 .mail-nav {
     display: flex;
     flex-direction: column;
+    max-width: 400px;
+    height: 100%;
+   
 }
 
-.mail-nav .nav{
+.activeMails{
+   color: #F4976C;
+
+}
+
+.mail-nav nav{
     display: flex;
     flex-direction: column;
-    height: 90%;
-    width: 50%;
+    flex-wrap: wrap;
+    height: min-content;
+    
+    
+    
+}
+.mail-nav nav button{
+    height: 2rem;
+    border: transparent;
+    background-color: transparent;
+    font-size: 1.5rem;
+    margin: 2rem,2rem;
+    border-radius: 15px;
+    padding: 0;
 }
 
+.mail-nav nav button:hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 16px 0px rgba(0,0,0,0.89)
+}
+
+.mail-nav label{
+  
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.mail-nav .compuse {
+    border:1px solid black;
+    border-radius: 15px;
+    padding: 0;
+    background-color: #F4976C;
+    margin: 1.5rem;
+
+}
+
+.mail-nav .compuse:hover{
+    cursor: pointer;
+}
+
+.mail-nav label input{
+    height: 2rem;
+    font-size: 1.5rem;
+    border-radius: 15px;
+
+}
 .loading-bar{
+    display: inline-block;
     position: relative;
-    width: 400px;
+    width: 200px;
     height: 30px;
     border-radius: 15px;
     overflow: hidden;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #000;
     box-shadow: inset 0 1px 2px rgba(#000, 0.4), 
-                        0 -1px 1px #fff, 0 1px 0 #fff;
+                        0 -1px 1px #000, 0 1px 0 #000;
                 
 
 }
@@ -39,18 +95,21 @@
     display: block;
     height: 100%;
     border-radius: 15px;
-    background-color: #a5df41;
+    background-color: #303C6C;
     background-size: 30px 30px;
-    background-image: linear-gradient(135deg,rgba(#fff, 0.4, 0.15)25%, transparent 25%,
-                            transparent 50%, rgba(#fff, 0.15) 50%,
-                            (#fff, 0.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(135deg,rgba(#000, 0.4, 0.15)25%, transparent 25%,
+                            transparent 50%, rgba(#000, 0.15) 50%,
+                            (#000, 0.15) 75%, transparent 75%, transparent);
     animation: animate-stripes 3s linear infinite;
 } 
 
-.container{
+.progress-bar{
+    display: flex;
+    justify-content: space-around;
     text-align: right ;
-    font-size: 3rem;
-    color: #555;
+    font-size: 2rem;
+    text-align: right;
+    color: #303C6C;
 }
 
 @keyframes animate-stripes{
@@ -58,26 +117,25 @@
     100% {background-position:60px 0;}
 }
 
+/* mail-list */
+
 .mail-list{
-    height: 100%;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 800px;
 }
 
-.mail-add{
-    position: absolute;
-    left: 25%;
-    bottom: 25%;
-    background-color: gray;
-    height: 20rem;
-    width: 20rem;
-}
 .mail-preview-container {
     border: 1px solid black;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    border-collapse: collapse;
 }
 
+.mail-preview-container:hover{
+    box-shadow: 1px 1px 12px 3px rgba(0,0,0,0.89);
+}
 .mail-bigger-prev {
     border: 1px solid black;
 }
@@ -96,7 +154,9 @@ h5 {
     flex-direction: row;
     justify-content: space-between;
     width: 90%;
+    height: 5rem;
 }
+
 
 .mail-bigger-prev {
     position: relative;
@@ -108,9 +168,77 @@ h5 {
     flex-direction: row;
 }
 
+.actions button{
+    border: transparent;
+    background-color: transparent;
+    font-size: 1rem;
+}
+.mail-preview .mailBody{
+    text-align: center;
+}
+.mail-preview .mailDate{
+    text-align: right;
+    width: 10%;
+}
 
+.mail-add{
+    position: absolute;
+    right: 3px;
+    bottom: 3px;
+    background-color: white;
+    height: 45rem;
+    width: 40rem;
+}
+
+.mail-add h3{
+    background-color: #303C6C;
+    color: #FBE8A6;
+    margin: 0;
+    padding: 0;
+    height: 3rem;
+    font-size: 1.5rem;
+}
+
+.mail-add form {
+    display: flex;
+    flex-direction: column;
+  
+}
+
+.mail-add form input{
+    height: 2.5rem;
+    font-size: 1rem;
+}
+
+.mail-add form .mailTrash{
+    position: absolute;
+    right: 6px;
+    bottom: 8px;
+    font-size: 1.5rem;
+    border: transparent;
+    background-color: transparent;
+}
+
+.mail-add form .mailSend{
+    position: absolute;
+    right: 60px;
+    bottom: 8px;
+    font-size: 1.5rem;
+    border: transparent;
+    background-color: transparent;
+}
+.mail-add form textarea{
+  height: 100%;
+  
+  
+}
 
 .bold {
     font-weight: bold;
-    font-size: 1.2rem;
+  
 }
+
+
+
+
+ /*צהוב  #FBE8A6,כתום #F4976C, #303C6C כחול, #B4DFE5 תכלת כהה,#D2FDFF תכלת בהיר*/
