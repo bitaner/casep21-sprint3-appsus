@@ -8,7 +8,7 @@ _createMails()
 export const mailService = {
     query,
     remove,
-    // save,
+    save,
     getEmptyMail,
     getById,
     // saveReview,
@@ -22,19 +22,19 @@ function _createMails() {
     storageService.query(MAILS_KEY)
         .then((mails) => {
             gMails = mails
-            console.log(gMails)
+            // console.log(gMails)
             if (!gMails || !gMails.length) {
                 gMails = [
                     { id: 'e100', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: false, isRead: false, sentAt: 1551133930594, to: 'user@appsus.com' },
-                    { id: 'e101', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: true, isRead: true, sentAt: 1551133930594, to: 'user@appsus.com' },
-                    { id: 'e102', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: true, isRead: false, sentAt: 1551133930594, to: 'user@appsus.com' },
-                    { id: 'e103', subject: 'have a nice day!', body: 'Would love to catch up sometimes', showMore: false, stared: true, isRead: true, sentAt: 1551133930594, to: 'user@appsus.com' },
+                    { id: 'e101', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: true, isRead: true, sentAt: 1531133930594, to: 'user@appsus.com' },
+                    { id: 'e102', subject: 'You are the best!', body: 'Would love to catch up sometimes', showMore: false, stared: true, isRead: false, sentAt: 1551133930594, to: 'user@appsus.com' },
+                    { id: 'e103', subject: 'have a nice day!', body: 'Would love to catch up sometimes', showMore: false, stared: true, isRead: true, sentAt: 1511133930594, to: 'user@appsus.com' },
                     { id: 'e104', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: false, isRead: false, sentAt: 1551133930594, to: 'user@appsus.com' },
                     { id: 'e105', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: false, isRead: false, sentAt: 1551133930594, to: 'momo@momo.com' },
                     { id: 'e106', subject: 'we were on a break!', body: 'Would love to catch up sometimes', showMore: false, stared: true, isRead: true, sentAt: 1551133930594, to: 'momo@momo.com' },
                     { id: 'e107', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: true, isRead: false, sentAt: 1551133930594, to: 'momo@momo.com' },
-                    { id: 'e108', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: true, isRead: true, sentAt: 1551133930594, to: 'momo@momo.com' },
-                    { id: 'e109', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: false, isRead: false, sentAt: 1551133930594, to: 'momo@momo.com' },
+                    { id: 'e108', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: true, isRead: true, sentAt: 1521133330594, to: 'momo@momo.com' },
+                    { id: 'e109', subject: 'Miss you!', body: 'Would love to catch up sometimes', showMore: false, stared: false, isRead: false, sentAt: 1451133930594, to: 'momo@momo.com' },
                 ]
                 utilService.saveToStorage(MAILS_KEY, gMails);
             }
@@ -63,17 +63,17 @@ function remove(mailId) {
     return storageService.remove(MAILS_KEY, mailId);
 }
 
-// function save(mail) {
-//   if (mail.id) return storageService.put(mails_KEY, mail);
-//   else return storageService.post(mails_KEY, mail);
-// }
+function save(mail) {
+  if (mail.id) return storageService.put(MAILS_KEY, mail);
+  else return storageService.post(MAILS_KEY, mail);
+}
 
 function getEmptyMail() {
     return {
         body: '',
         id: utilService.makeId(),
         isRead: true,
-        sendAt: '',
+        sentAt: '',
         showMore: false,
         stared: false,
         subject: '',

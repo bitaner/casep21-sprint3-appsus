@@ -12,10 +12,28 @@ export default {
     },
     computed: {
         changeDateFormat() {
+
+
+           
+
             var date = this.mail.sentAt;
             var date = new Date(+date)
-            return date.toDateString().slice(4)
+            this.checkIfToday(date)
+            if (this.checkIfToday(date)) return date.toString().slice(15,21)
+            else return date.toDateString().slice(4)
         }
 
+    },
+    methods: {
+        checkIfToday(date){
+            var ts = date
+            var today = new Date().setHours(0, 0, 0, 0);
+            var thatDay = new Date(ts).setHours(0, 0, 0, 0);
+            if (today === thatDay) return true;
+
+        }
     }
 }
+
+
+

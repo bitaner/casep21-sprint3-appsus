@@ -12,7 +12,7 @@ export default {
                     <mail-preview :mail="mail" @click.native="log" />
                     
                     <div class="actions">
-                    <button @click="remove(mail.id)">delete</button>
+                    <button @click.stop="remove(mail.id)">delete</button>
                     <router-link :to="'/mail/'+mail.id">read?</router-link>
                     <router-link :to="'/mail/edit/'+mail.id">Edit</router-link>
                     </div>
@@ -30,7 +30,9 @@ export default {
         </div>
     `,
     data() {
-        return {showMore:true}
+        return {showMore:true,
+            length: this.mails.length
+        }
     },
     methods: {
         toggle(index) {
@@ -51,7 +53,7 @@ export default {
         readCheck(mail){
             if (mail.isRead === false) return "bold"
             else return "unbold"
-        }
+        },
     },
     components: {
         mailPreview

@@ -8,7 +8,7 @@ export default {
             <input v-on:input="setFilterSub" v-model="filterBy.subject" type="text" placeholder="Search mail">
             </label>
             <nav>
-            <button v-on:click="creatNewMail">compose+</button>
+            <button v-on:click="createNewMail">compose+</button>
             <button v-on:click="setMore('all')" v-bind:value="filterBy.moreFilter" type="button">inbox</button> |
             <button v-on:click="setMore('stared')" v-bind:value="filterBy.moreFilter" type="button">stared</button> |
             <button v-on:click="setMore('sent')" v-bind:value="filterBy.moreFilter" type="button">sent mail</button> |
@@ -46,8 +46,8 @@ export default {
             //deep copy
             // this.$emit('filtered', JSON.parse(JSON.stringify(this.filterBy)));
         },
-        creatNewMail() {
-            console.log('creat new mail')
+        createNewMail() {
+            console.log('create new mail')
             this.$emit('newMail');
         }
     },

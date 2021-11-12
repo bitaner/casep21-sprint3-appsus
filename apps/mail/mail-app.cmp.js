@@ -10,8 +10,9 @@ import mailNav from './cmps/mail-nav.cmp.js';
 export default {
     template: `
         <section v-if="mails" class="mail-app app-main">
-            <mail-nav @filtered="setFilter" @newMail="creatNewMail" :mails="mails"></mail-nav>
-            <mail-add v-if="newMail"></mail-add>
+            <mail-nav @filtered="setFilter" @newMail="createNewMail" :mails="mails"></mail-nav>
+            <mail-add @closeModal="closingModal" v-if="newMail"></mail-add>
+
             <div v-if="mails">
             <mail-list v-if="filterBy" :mails="mailsToShow"  @remove="removemail"></mail-list>
             </div>
@@ -51,9 +52,10 @@ export default {
             this.filterBy = filterBy;
 
         },
-        creatNewMail(){
+        createNewMail() {
             console.log('new mail created');
             this.newMail = true;
+            console.log(this.newMail)
         },
         removemail(id) {
             mailService.remove(id)
@@ -62,7 +64,7 @@ export default {
                         txt: 'Deleted succesfully',
                         type: 'success'
                     };
-                    eventBus.$emit('showMsg', msg);
+                    // eventBus.$emit('showMsg', msg);
                     this.mails = this.mails.filter(mail => mail.id !== id)
                 })
                 .catch(err => {
@@ -71,8 +73,12 @@ export default {
                         txt: 'Error. Please try later',
                         type: 'error'
                     };
-                    eventBus.$emit('showMsg', msg);
+                    // eventBus.$emit('showMsg', msg);
                 });
+        },
+        closingModal() {
+            this.newMail = null;
+
         }
     },
     computed: {
@@ -82,9 +88,17 @@ export default {
             var mailToUser = this.mails.filter(mail => mail.to === "user@appsus.com")
             const searchStr = this.filterBy.subject
             var mailFiltered = null;
-            if (this.filterBy.moreFilter === 'sent'){
-                if (!searchStr) return mailFiltered = this.mails.filter(mail => mail.to !== "user@appsus.com");
-                else return mailFiltered = this.mails.filter(mail => mail.to !== "user@appsus.com" && mail.subject.toLowerCase().includes(searchStr));
+            if (this.filterBy.moreFilter === 'sent') {
+                if (!searchStr) {
+                    mailFiltered = this.mails.filter(mail => mail.to !== "user@appsus.com")
+                    return mailFiltered.sort((a, b) => (b.sentAt - a.sentAt))
+                } else {
+                    mailFiltered = this.mails.filter(mail => {
+                        return (mail.to !== "user@appsus.com" &&
+                            (mail.subject.toLowerCase().includes(searchStr) || mail.body.toLowerCase().includes(searchStr)))
+                    })
+                    return mailFiltered.sort((a, b) => (b.sentAt - a.sentAt))
+                };
             }
             switch (this.filterBy.moreFilter) {
                 case 'all': mailFiltered = this.mails.filter(mail => mail.to === "user@appsus.com");
@@ -94,9 +108,12 @@ export default {
                 case 'unread': mailFiltered = mailToUser.filter(mail => mail.isRead === false);
                     break
                 case 'stared': mailFiltered = mailToUser.filter(mail => mail.stared === true);
-                }
+            }
             if (searchStr) {
-                return mailFiltered.filter(mail => mail.subject.toLowerCase().includes(searchStr))
+                mailFiltered.filter(mail => {
+                    return (mail.subject.toLowerCase().includes(searchStr) || mail.body.toLowerCase().includes(searchStr))
+                })
+                return mailFiltered.sort((a, b) => (b.sentAt - a.sentAt))
             } else return mailFiltered;
 
         }
@@ -106,6 +123,7 @@ export default {
         // mailFilter,
         mailAdd,
         mailNav
-    }
+    },
+    
 };
 

@@ -24,7 +24,7 @@ export default {
         percent(){
            var unreadMails = this.mails.filter(mail => mail.isRead === false);
            var mails = this.mails
-           this.percentage = unreadMails.length/mails.length*100
+           this.percentage = (unreadMails.length/mails.length*100).toFixed(0)
             return this.percentage
             // return this.percentage.toFixed();
         }

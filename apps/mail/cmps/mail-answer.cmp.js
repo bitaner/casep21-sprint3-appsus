@@ -7,14 +7,14 @@ export default {
             <form @submit.prevent="sendMessage">
 
                 <p v-if="errors.length">
-                <b>Please correct the following error(s):</b>
+                <b>Please correct the following errors:</b>
                 <ul>
                 <li v-for="error in errors">{{ error }}</li>
                 </ul>
                 </p>
                 <input ref="to" name="to" v-model="mailToEdit.to" type="text" placeholder="To:">
-                <input v-model="mailCC" type="text" placeholder="Cc:">
-                <input v-model="mailBcc" type="text" placeholder="Bcc:">
+                <input v-model="mailToEdit.to" type="text" placeholder="Cc:">
+                <input v-model="mailToEdit.to" type="text" placeholder="Bcc:">
                 <input v-model="mailToEdit.subject" type="text" placeholder="subject">
                 <textarea v-model="mailToEdit.body"></textarea>
                 <button type="submit">send</button>
@@ -25,8 +25,6 @@ export default {
     data() {
         return {
             mailToEdit: null,
-            mailCC:null,
-            mailBcc:null,
             errors: [],
         };
     },
@@ -41,9 +39,7 @@ export default {
         sendMessage() {
             var status = this.checkForm()
             if (!status) return
-            this.mailToEdit.sentAt = Date.now();
-            this.mailToEdit.to += this.mailCC
-            this.mailToEdit.to += this.mailBcc
+            this.mailToEdit.sendAt = Date.now();
             console.log(this.mailToEdit)
             mailService.save(this.mailToEdit)
                 .then(() => {

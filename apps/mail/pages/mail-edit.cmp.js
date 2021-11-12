@@ -2,8 +2,8 @@
 
 export default {
     template: `
-        <section class="mail-edit app-main">
-            <h3>Add a new mail</h3>
+        <section >
+            <!-- <h3>Add a new mail!!!!</h3> -->
             <!-- <form v-if="bookToEdit" @submit.prevent="save" >
                 <input v-model="bookToEdit.vendor" type="text" placeholder="Vendor">
                 <input v-model.number="carToEdit.maxSpeed" type="number" placeholder="Max speed">
