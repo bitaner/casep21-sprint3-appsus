@@ -5,6 +5,8 @@ import noteList from './cmps/note-list.cmp.js'
 import { eventBus } from '../../services/event-bus-service.js'
 // import { storageService } from '../../services/async-storage-service.js'
 import { utilService } from '../../services/util-service.js'
+import { mailService } from '../mail/services/mail-service.js'
+
 
 export default {
     components: {
@@ -38,13 +40,14 @@ export default {
         eventBus.$on('noteUpdate', this.noteUpdate)
         eventBus.$on('duplicate', this.duplicate)
         eventBus.$on('noteAdd', this.noteAdd)
+        eventBus.$on('mailNote', this.mailNote)
     },
 
     methods: {
         loadNotes() {
             noteService.query().then((notes) => {
                 notes.sort(function(x, y) {
-                    return (x.isPinned === y.isPinned) ? 0 : x ? -1 : 1
+                    return (x.isPinned === y.isPinned) ? 0 : x.isPinned ? -1 : 1
                 })
                 this.notes = notes
             })
@@ -93,6 +96,15 @@ export default {
             console.log('new note', note)
             this.notes.push(note)
             noteService.add(note)
+        },
+        mailNote(note) {
+            // console.log(note,' bus')
+            var mail = mailService.getEmptyMail()
+            mail.body = note.info
+            mail.subject = 'sent from notes'
+            mail.to = 'notes.alla@gmail.com'
+            console.log(mail)
+            mailService.save(mail)
         }
     },
 

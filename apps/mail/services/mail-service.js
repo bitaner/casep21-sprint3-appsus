@@ -22,7 +22,7 @@ function _createMails() {
     storageService.query(MAILS_KEY)
         .then((mails) => {
             gMails = mails
-            // console.log(gMails)
+                // console.log(gMails)
             if (!gMails || !gMails.length) {
                 gMails = [
                     { id: 'e97', subject: 'How you doin?', body: 'Would love to catch up sometimes', showMore: false, stared: false, isRead: false, sentAt: 1751133930594, to: 'user@appsus.com' },
@@ -76,8 +76,8 @@ function remove(mailId) {
 }
 
 function save(mail) {
-  if (mail.id) return storageService.put(MAILS_KEY, mail);
-  else return storageService.post(MAILS_KEY, mail);
+    if (mail.id) return storageService.put(MAILS_KEY, mail);
+    else return storageService.post(MAILS_KEY, mail);
 }
 
 function getEmptyMail() {

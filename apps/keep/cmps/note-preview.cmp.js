@@ -22,7 +22,7 @@ export default {
             <button @click="remove(note.id)" class="note-btn" title="Delete"><i class="fas fa-trash-alt"></i></button>
             <button @click="duplicate()" class="note-btn" title="Duplicate"><i class="fas fa-copy"></i></button>
             <button @click="pin(note)" class="note-btn" title="Pin"><i class="fas fa-thumbtack"></i></button>
-            <button @click="mail(note.id)" class="note-btn" title="send as E-mail"><i class="fas fa-paper-plane"></i>
+            <button @click="mail(note)" class="note-btn" title="send as E-mail"><i class="fas fa-paper-plane"></i>
 
 </button>
             <input ref="colorInput"  type="color"  v-model="color" @change="setBGCinput(note)" class="note-btn note-color" title="Set note color" >
@@ -59,8 +59,9 @@ export default {
                 // console.log('after ', this.note.backgroundColor)
             eventBus.$emit('noteUpdate', note)
         },
-        mail(noteId) {
-            console.log('mail ', noteId)
+        mail(note) {
+            console.log('mail ', note)
+            eventBus.$emit('mailNote', note)
         },
         pin(note) {
             console.log('pin ', note)
