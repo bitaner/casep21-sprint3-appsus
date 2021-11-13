@@ -22,6 +22,7 @@ function post(entityType, newEntity) {
     return query(entityType)
         .then(entities => {
             entities.push(newEntity);
+            console.log(newEntity)
             _save(entityType, entities)
             return newEntity;
         })
@@ -41,6 +42,7 @@ function put(entityType, updatedEntity) {
         .then(entities => {
             const idx = entities.findIndex(entity => entity.id === updatedEntity.id);
             entities.splice(idx, 1, updatedEntity)
+            console.log('put')
             _save(entityType, entities)
             return updatedEntity;
         })
