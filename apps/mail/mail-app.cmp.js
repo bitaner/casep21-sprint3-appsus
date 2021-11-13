@@ -13,7 +13,7 @@ export default {
             <mail-nav @filtered="setFilter" @newMail="createNewMail" :mails="mails"></mail-nav>
             <mail-add @closeModal="closingModal" v-if="newMail"></mail-add>
 
-            <div v-if="mails">
+            <div v-if="mails" class="mail-list-container">
             <mail-list v-if="filterBy" :mails="mailsToShow"  @remove="removemail"></mail-list>
             </div>
         </section>

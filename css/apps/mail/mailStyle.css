@@ -1,244 +1,248 @@
- /*צהוב  #FBE8A6,כתום #F4976C, #303C6C כחול, #B4DFE5 תכלת כהה,#D2FDFF תכלת בהיר*/
-
-
+/*צהוב  #FBE8A6,כתום #F4976C, #303C6C כחול, #B4DFE5 תכלת כהה,#D2FDFF תכלת בהיר*/
 
 /* mail-app */
 .mail-app {
-    background-color:#B4DFE5;
-    height: 87vh;
-    display: flex;
-    flex-direction: row;
+  background-color: #b4dfe5;
+  height: 87vh;
+  display: flex;
+  flex-direction: row;
 }
 
 .mail-nav {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    height: 100%;
-   
+  display: flex;
+  flex-direction: column;
+  max-width: 30%;
+  height: 100%;
 }
 
-.activeMails{
-   color: #F4976C;
-
+.activeMails {
+  color: #f4976c;
 }
 
-.mail-nav nav{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: min-content;
-    
-    
-    
+.mail-nav nav {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: min-content;
 }
-.mail-nav nav button{
-    height: 2rem;
-    border: transparent;
-    background-color: transparent;
-    font-size: 1.5rem;
-    margin: 2rem,2rem;
-    border-radius: 15px;
-    padding: 0;
+.mail-nav nav button {
+  height: 2rem;
+  border: transparent;
+  background-color: transparent;
+  font-size: 1.5rem;
+  margin: 2rem, 2rem;
+  border-radius: 15px;
+  padding: 0;
 }
 
-.mail-nav nav button:hover{
-    cursor: pointer;
-    box-shadow: 1px 1px 16px 0px rgba(0,0,0,0.89)
+.mail-nav nav button:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 16px 0px rgba(0, 0, 0, 0.89);
 }
 
-.mail-nav label{
-  
-    display: flex;
-    flex-direction: column;
-    font-size: 1.5rem;
-    padding: 1.5rem;
-    text-align: center;
+.mail-nav label {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  padding: 1.5rem;
+  text-align: center;
 }
 
 .mail-nav .compuse {
-    border:1px solid black;
-    border-radius: 15px;
-    padding: 0;
-    background-color: #F4976C;
-    margin: 1.5rem;
-
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 0;
+  background-color: #f4976c;
+  margin: 1.5rem;
 }
 
-.mail-nav .compuse:hover{
-    cursor: pointer;
+.mail-nav .compuse:hover {
+  cursor: pointer;
 }
 
-.mail-nav label input{
-    height: 2rem;
-    font-size: 1.5rem;
-    border-radius: 15px;
-
+.mail-nav label input {
+  height: 2rem;
+  font-size: 1.5rem;
+  border-radius: 15px;
 }
-.loading-bar{
-    display: inline-block;
-    position: relative;
-    width: 200px;
-    height: 30px;
-    border-radius: 15px;
-    overflow: hidden;
-    border-bottom: 1px solid #000;
-    box-shadow: inset 0 1px 2px rgba(#000, 0.4), 
-                        0 -1px 1px #000, 0 1px 0 #000;
-                
-
+.loading-bar {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+  border-bottom: 1px solid #000;
+  box-shadow: inset 0 1px 2px rgba(#000, 0.4), 0 -1px 1px #000, 0 1px 0 #000;
 }
 
 .percentage {
-    position:absolute;
-    top: 1px; left: 1px; right: 1px;
-    display: block;
-    height: 100%;
-    border-radius: 15px;
-    background-color: #303C6C;
-    background-size: 30px 30px;
-    background-image: linear-gradient(135deg,rgba(#000, 0.4, 0.15)25%, transparent 25%,
-                            transparent 50%, rgba(#000, 0.15) 50%,
-                            (#000, 0.15) 75%, transparent 75%, transparent);
-    animation: animate-stripes 3s linear infinite;
-} 
-
-.progress-bar{
-    display: flex;
-    justify-content: space-around;
-    text-align: right ;
-    font-size: 2rem;
-    text-align: right;
-    color: #303C6C;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  display: block;
+  height: 100%;
+  border-radius: 15px;
+  background-color: #303c6c;
+  background-size: 30px 30px;
+  background-image: linear-gradient(
+    135deg,
+    rgba(#000, 0.4, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(#000, 0.15) 50%,
+    (#000, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  animation: animate-stripes 3s linear infinite;
 }
 
-@keyframes animate-stripes{
-    0% {background-position: 0 0 ;}
-    100% {background-position:60px 0;}
+.progress-bar {
+  display: flex;
+  justify-content: space-around;
+  text-align: right;
+  font-size: 2rem;
+  text-align: right;
+  color: #303c6c;
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 60px 0;
+  }
 }
 
 /* mail-list */
 
-.mail-list{
-    display: flex;
-    flex-direction: column;
-    width: 800px;
+.mail-list-container {
+  width: 70%;
+}
+
+.mail-list {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: 88vh;
 }
 
 .mail-preview-container {
-    border: 1px solid black;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    border-collapse: collapse;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-collapse: collapse;
 }
 
-.mail-preview-container:hover{
-    box-shadow: 1px 1px 12px 3px rgba(0,0,0,0.89);
+.mail-preview-container:hover {
+  box-shadow: 1px 1px 12px 3px rgba(0, 0, 0, 0.89);
 }
 .mail-bigger-prev {
-    border: 1px solid black;
+  border: 1px solid black;
 }
 
 .mail-bigger-prev h3,
 h5 {
-    display: inline-block;
+  display: inline-block;
 }
 
 .mail-bigger-prev h5 {
-    color: gray;
+  color: gray;
 }
 
 .mail-preview {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 90%;
-    height: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  height: 5rem;
 }
 
+.mail-preview .mailSubject {
+  width: 30%;
+}
 
 .mail-bigger-prev {
-    position: relative;
-    top: 100;
+  position: relative;
+  top: 100;
 }
 
 .actions {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
-.actions button{
-    border: transparent;
-    background-color: transparent;
-    font-size: 1rem;
+.actions button {
+  border: transparent;
+  background-color: transparent;
+  font-size: 1.5rem;
 }
-.mail-preview .mailBody{
+.mail-preview .mailBody {
+    width: 60%;
     text-align: center;
 }
-.mail-preview .mailDate{
-    text-align: right;
-    width: 10%;
+.mail-preview .mailDate {
+  text-align: right;
+  width: 8%;
 }
 
-.mail-add{
-    position: absolute;
-    right: 3px;
-    bottom: 3px;
-    background-color: white;
-    height: 45rem;
-    width: 40rem;
+.mail-add {
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  background-color: white;
+  height: 45rem;
+  width: 40rem;
 }
 
-.mail-add h3{
-    background-color: #303C6C;
-    color: #FBE8A6;
-    margin: 0;
-    padding: 0;
-    height: 3rem;
-    font-size: 1.5rem;
+.mail-add h3 {
+  background-color: #303c6c;
+  color: #fbe8a6;
+  margin: 0;
+  padding: 0;
+  height: 3rem;
+  font-size: 1.5rem;
 }
 
 .mail-add form {
-    display: flex;
-    flex-direction: column;
-  
+  display: flex;
+  flex-direction: column;
 }
 
-.mail-add form input{
-    height: 2.5rem;
-    font-size: 1rem;
+.mail-add form input {
+  height: 2.5rem;
+  font-size: 1rem;
 }
 
-.mail-add form .mailTrash{
-    position: absolute;
-    right: 6px;
-    bottom: 8px;
-    font-size: 1.5rem;
-    border: transparent;
-    background-color: transparent;
+.mail-add form .mailTrash {
+  position: absolute;
+  right: 6px;
+  bottom: 8px;
+  font-size: 1.5rem;
+  border: transparent;
+  background-color: transparent;
 }
 
-.mail-add form .mailSend{
-    position: absolute;
-    right: 60px;
-    bottom: 8px;
-    font-size: 1.5rem;
-    border: transparent;
-    background-color: transparent;
+.mail-add form .mailSend {
+  position: absolute;
+  right: 60px;
+  bottom: 8px;
+  font-size: 1.5rem;
+  border: transparent;
+  background-color: transparent;
 }
-.mail-add form textarea{
+.mail-add form textarea {
   height: 100%;
-  
-  
 }
 
 .bold {
-    font-weight: bold;
-  
+  font-weight: bold;
+  font-style: italic;
+  font-size: 150%;
 }
 
-
-
-
- /*צהוב  #FBE8A6,כתום #F4976C, #303C6C כחול, #B4DFE5 תכלת כהה,#D2FDFF תכלת בהיר*/
+/*צהוב  #FBE8A6,כתום #F4976C, #303C6C כחול, #B4DFE5 תכלת כהה,#D2FDFF תכלת בהיר*/

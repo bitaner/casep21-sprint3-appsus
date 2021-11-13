@@ -2,8 +2,8 @@ export default {
     props: ['mail'],
     template: `
         <div v-if="mail" class="mail-preview">
-            <p>{{mail.subject}}</p>
-            <p class="mailBody">{{mail.body}}</p>
+            <p class="mailSubject">{{showLessText(this.mail.subject)}}</p>
+            <p class="mailBody">{{showLessText(mail.body)}}</p>
             <p class="mailDate">{{changeDateFormat}}</p>
         </div>
     `,
@@ -27,7 +27,15 @@ export default {
             var thatDay = new Date(ts).setHours(0, 0, 0, 0);
             if (today === thatDay) return true;
 
-        }
+        },
+        showLessText(part) {
+            if (part.length > 25) {
+                console.log(part.slice(0,25) + "...")
+                return part.slice(0, 25) + "..."
+            }else{
+                return part
+            }
+        },
     }
 }
 
