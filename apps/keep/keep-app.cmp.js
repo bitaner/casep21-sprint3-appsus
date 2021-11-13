@@ -110,21 +110,20 @@ export default {
                 note = null
                 console.log(note)
                 console.log(mail)
-                });
+            });
         }
     },
 
     computed: {
         notesToShow() {
             if (!this.filterBy) return this.notes
-            const searchStr = this.filterText.toLowerCase()
+                // const searchStr = this.filterText.toLowerCase()
             var notesToShow = this.notes.filter(note => {
                 return note.type === this.filterBy
             })
             return notesToShow
         }
     },
-
 }
 // && JSON.stinote.info
 // notesToShow() {

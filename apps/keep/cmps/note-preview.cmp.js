@@ -70,7 +70,6 @@ export default {
         },
         duplicate() {
             eventBus.$emit('duplicate', this.note)
-
         }
     },
 
