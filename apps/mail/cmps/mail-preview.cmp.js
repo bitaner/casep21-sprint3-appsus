@@ -30,7 +30,7 @@ export default {
         },
         showLessText(part) {
             if (part.length > 25) {
-                console.log(part.slice(0,25) + "...")
+                // console.log(part.slice(0,25) + "...")
                 return part.slice(0, 25) + "..."
             }else{
                 return part

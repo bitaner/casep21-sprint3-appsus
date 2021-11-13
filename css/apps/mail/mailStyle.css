@@ -169,6 +169,8 @@ h5 {
 .mail-bigger-prev {
   position: relative;
   top: 100;
+  height: 7rem;
+  background-color: #428d91;
 }
 
 .actions {
@@ -190,12 +192,16 @@ h5 {
   width: 8%;
 }
 
+.mail-preview .mailSticker {
+  text-align: right;
+  width: 8%;
+}
+
 .mail-add {
   position: absolute;
-  right: 3px;
-  bottom: 3px;
+  right: 12px;
+  bottom: 62px;
   background-color: white;
-  height: 45rem;
   width: 40rem;
 }
 
@@ -221,7 +227,7 @@ h5 {
 .mail-add form .mailTrash {
   position: absolute;
   right: 6px;
-  bottom: 8px;
+  bottom: 30px;
   font-size: 1.5rem;
   border: transparent;
   background-color: transparent;
@@ -230,7 +236,17 @@ h5 {
 .mail-add form .mailSend {
   position: absolute;
   right: 60px;
-  bottom: 8px;
+  bottom: 30px;
+  font-size: 1.5rem;
+  border: transparent;
+  background-color: transparent;
+}
+
+
+.mail-add form .mailSticker{
+  position: absolute;
+  right: 110px;
+  bottom: 30px;
   font-size: 1.5rem;
   border: transparent;
   background-color: transparent;

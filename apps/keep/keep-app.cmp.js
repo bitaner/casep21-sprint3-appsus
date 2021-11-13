@@ -13,7 +13,6 @@ export default {
         noteFilter,
         noteAdd
     },
-
     template: `
         <section class="note-app app-main">
             <h1>Notes</h1>
@@ -97,17 +96,20 @@ export default {
             noteService.add(note)
         },
         mailNote(note) {
-            // console.log(note,' bus')
             var mail = mailService.getEmptyMail()
             mail.body = note.info
+            mail.sentAt = Date.now();
+            mail.to += this.mailCC
+            mail.to += this.mailBcc
             mail.subject = 'sent from notes'
             mail.to = 'notes.alla@gmail.com'
             console.log(mail)
-            mailService.save(mail)
-                .then(() => {
-                    console.log('saved!')
-                    mail = null
-                    note = null
+            mailService.save(mail).then(() => {
+                console.log('saved!')
+                mail = null
+                note = null
+                console.log(note)
+                console.log(mail)
                 });
         }
     },

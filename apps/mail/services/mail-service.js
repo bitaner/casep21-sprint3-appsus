@@ -77,8 +77,8 @@ function remove(mailId) {
 
 function save(mail) {
     console.log('mail-service', mail, mail.id)
-    if (mail.id) return storageService.put(MAILS_KEY, mail);
-    else return storageService.post(MAILS_KEY, mail);
+    // if (mail.id) return storageService.put(MAILS_KEY, mail);
+   return storageService.post(MAILS_KEY, mail);
 }
 
 function getEmptyMail() {
