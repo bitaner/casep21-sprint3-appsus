@@ -3,7 +3,7 @@ import bookLongText from '../cmps/book-long-text.cmp.js';
 import reviewAdd from '../cmps/review-add.cmp.js';
 export default {
     template: `
-        <section v-if="book" class="book-details app-main">
+        <section v-if="book" class="book-details app-main"> 
             <h5>{{book.title}}</h5>
             <p><span>Subtitle:</span> {{book.subtitle}}</p>
             <p><span>Authors: </span>{{book.authors}}</p>
@@ -30,8 +30,10 @@ export default {
         const { bookId } = this.$route.params;
         console.log(bookId)
         bookService.getById(bookId)
-            .then(book => {this.book = book,
-            console.log(book)});
+            .then(book => {
+                this.book = book,
+                console.log(book)
+            });
     },
     components: {
         bookLongText,
@@ -65,11 +67,11 @@ export default {
             else if (this.book.listPrice.currencyCode === 'EUR') return '€';
             else if (this.book.listPrice.currencyCode === 'USD') return '$';
         },
-        sale(){
+        sale() {
             if (this.book.listPrice.isOnSale) return 'sale!'
             else return ''
         },
-        
+
 
 
     }

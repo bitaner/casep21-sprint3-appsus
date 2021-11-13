@@ -29,15 +29,6 @@
 
 /* details */
 
-.book-modal{
-  position: absolute;
-  background-color: white;
-  left: 50%;
-  bottom: 50%;
-  transform: translate(-50%,50%);
-  height: 40rem;
-  width: 40rem;
-}
 
 .book-details {
   background-color: lightgreen;

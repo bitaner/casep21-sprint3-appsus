@@ -2,7 +2,7 @@ export default {
     template: `
         <header class="app-header">
             <div class="logo">
-                <router-link class="link" to="/" active-class="active-link" exact>APPSUS</router-link> |
+                <router-link class="link" to="/" active-class="active-link" exact><i class="far fa-lightbulb"></i>APPSUS</router-link> |
             </div>
             <nav>
                 <router-link class="link" to="/" active-class="active-link" exact>Home</router-link> |

@@ -1,7 +1,7 @@
-@import './apps/book/bookStyle.css';
+@import "./apps/book/bookStyle.css";
 @import "./apps/keep/keepStyle.css";
 @import "./apps/mail/mailStyle.css";
-/* colores: #FBE8A6, #F4976C, #3030C6C , #B4DFE5 ,#D2FDFF */
+/* colores: #FBE8A6, #F4976C, #303C6C , #B4DFE5 ,#D2FDFF */
 * {
   box-sizing: border-box;
 }
@@ -26,6 +26,35 @@ body {
 .app-main {
   height: 90vh;
 }
+
+.app-header {
+  padding: 10px;
+  height: 5vh;
+  background-color: #303C6C;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #b4dfe5;
+}
+
+.logo a {
+  color: #FBE8A6;
+  font-weight: bold;
+}
+.app-header nav .link{ 
+  color: #FBE8A6;
+  
+}
+
+.app-footer{
+  padding: 10px;
+  height: 5vh;
+  background-color: #303C6C;
+  text-align: center;
+  color: #FBE8A6;
+  font-weight: bold;
+}
+
 .link {
   text-decoration: none;
 }
@@ -33,4 +62,32 @@ body {
 .bold {
   font-weight: bold;
   font-size: 1.2rem;
+}
+
+.about-page {
+  
+  color: black
+}
+
+.about-page p {
+  height: 60%;
+  font-size: 1.5rem;
+  width: 50%;
+  line-height: 4rem;
+  margin-left: 45%;
+  text-align: center;
+  
+}
+
+.about-page p span {
+  font-weight: 900;
+  color: #F4976C;
+  font-size: 1.5rem;
+  line-height: 4rem;
+}
+
+.home-page {
+  background-image: url(../img/home.jpg);
+  background-size: cover;
+  color: white;
 }
