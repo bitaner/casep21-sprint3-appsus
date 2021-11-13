@@ -125,33 +125,3 @@ export default {
         }
     },
 }
-// && JSON.stinote.info
-// notesToShow() {
-//     if (!this.filterBy ||(this.filterBy.title === '' && this.filterBy.selectOpt === 'All'))
-//       return this.notes
-//     const searchStr = this.filterBy.title.toLowerCase()
-//     return this.notes.filter(note => {
-//       if (
-//         note.type === 'note-txt' &&
-//         (this.filterBy.selectOpt === note.type ||
-//           this.filterBy.selectOpt === 'All') &&
-//         note.info.txt.toLowerCase().includes(searchStr)
-//       ) {
-//         return note
-//       } else if (
-//         note.type === 'note-todos' &&
-//         (this.filterBy.selectOpt === note.type ||
-//           this.filterBy.selectOpt === 'All') &&
-//         note.info.label.toLowerCase().includes(searchStr)
-//       ) {
-//         return note
-//       } else if (
-//         note.type === 'note-img' &&
-//         (this.filterBy.selectOpt === note.type ||
-//           this.filterBy.selectOpt === 'All') &&
-//         note.info.title.toLowerCase().includes(searchStr)
-//       ) {
-//         return note
-//       }
-//     })
-//   }
