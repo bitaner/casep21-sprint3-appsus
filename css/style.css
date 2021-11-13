@@ -1,13 +1,36 @@
-/* @import './apps/book/bookStyle.css'; */
-@import './apps/keep/keepStyle.css';
-@import './apps/mail/mailStyle.css';
-
+@import './apps/book/bookStyle.css';
+@import "./apps/keep/keepStyle.css";
+@import "./apps/mail/mailStyle.css";
 /* colores: #FBE8A6, #F4976C, #3030C6C , #B4DFE5 ,#D2FDFF */
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
 body {
-    background-color: #B4DFE5;
+  margin: 0;
+}
+body {
+  background-color: #b4dfe5;
+}
+
+.app-main {
+  height: 90vh;
+}
+.link {
+  text-decoration: none;
 }
 
 .bold {
-    font-weight: bold;
-    font-size: 1.2rem;
+  font-weight: bold;
+  font-size: 1.2rem;
 }

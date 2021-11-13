@@ -1,0 +1,129 @@
+.book-app {
+  height: max-content;
+  background-color: lightblue;
+}
+
+/* filter */
+
+.book-filter {
+  padding: 20px;
+  background-color: lightseagreen;
+}
+
+.book-add {
+  padding: 20px;
+  background-color: rgb(32, 83, 178);
+}
+
+.Results {
+  position: relative;
+  background-color: cadetblue;
+  text-align: center;
+}
+
+.Results button {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+
+/* details */
+
+.book-modal{
+  position: absolute;
+  background-color: white;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%,50%);
+  height: 40rem;
+  width: 40rem;
+}
+
+.book-details {
+  background-color: lightgreen;
+  text-align: center;
+}
+
+.book-details span {
+  font-weight: 700;
+}
+
+.book-details h5 {
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.book-list button {
+  position: absolute;
+  bottom: 3px;
+  align-self: center;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+/* edit */
+
+.book-edit {
+  background-color: lightcoral;
+  padding: 20px;
+}
+
+/* list */
+
+.book-list {
+  margin: 0;
+  padding: 20px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* preview */
+.book-preview-container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  row-gap: 5px;
+  column-gap: 5px;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.book-preview img {
+  height: 80%;
+}
+
+.book-actions {
+  display: flex;
+  align-items: center;
+}
+
+.book-actions button {
+  align-self: center;
+}
+
+/* review-add */
+
+.review-add {
+  background-color: lightsalmon;
+  height: 220px;
+}
+
+.reviews {
+  background-color: lightskyblue;
+  height: max-content;
+}
+.review-add > {
+  display: block;
+}
