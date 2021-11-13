@@ -7,7 +7,6 @@ import { eventBus } from '../../services/event-bus-service.js'
 import { utilService } from '../../services/util-service.js'
 import { mailService } from '../mail/services/mail-service.js'
 
-
 export default {
     components: {
         noteList,
@@ -105,6 +104,11 @@ export default {
             mail.to = 'notes.alla@gmail.com'
             console.log(mail)
             mailService.save(mail)
+                .then(() => {
+                    console.log('saved!')
+                    mail = null
+                    note = null
+                });
         }
     },
 
