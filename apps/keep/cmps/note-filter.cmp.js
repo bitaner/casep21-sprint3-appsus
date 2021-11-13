@@ -4,9 +4,9 @@ export default {
 
     template: `
         <div class="note-filter">
-            <label>Search</label>
+            
             <input @input="filter" v-model="filterText" type="text" placeholder="Search...">
-            <label for="types">filter notes</label>
+            <label for="types" class="notes-filter-label">Filter notes</label>
             <select name="types" id="types" v-model="NoteType" @change="reportType" >
                 <option value="" >All</option>   
                 <option value="note-txt">Text</option>

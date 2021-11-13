@@ -8,6 +8,19 @@
     background-color: #B4DFE5;
 }
 
+.notes-bar {
+    background-color: #303C6C;
+    color: #D2FDFF;
+    padding: 5px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.notes-filter-label {
+    margin-inline-start: 20px;
+}
+
 .note img {
     height: 150px;
     margin: 20px;
@@ -25,9 +38,13 @@ ul {
     margin: none;
 }
 
+
+/* my  gallery settings */
+
 .notes-gallery {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
     gap: 10px;
     margin: 10px;
     padding: 10px;
@@ -53,11 +70,10 @@ ul {
     border-radius: 20px;
 }
 
-
-/* .note-pin {
-    position: absolute;
-    z-index: 9;
-} */
+.note-pin {
+    align-self: flex-start;
+    color: rgb(0, 0, 0);
+}
 
 .note-btn {
     background-color: inherit;

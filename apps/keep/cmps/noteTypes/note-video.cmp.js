@@ -7,7 +7,7 @@ export default {
     props: ['note'],
     template: `
         <section class="vid-note">
-        <iframe width="560" height="315" v-bind:src=this.note.info.url title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="466" height="262.5" v-bind:src=this.note.info.url title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <h3>
                 {{note.info.txt}}
             </h3>

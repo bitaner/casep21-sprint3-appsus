@@ -7,7 +7,7 @@ export default {
     template: `
         <ul class="note-list">
             <li v-for="note in notes" :key="note.id" class="note-preview-container" v-bind:style="{backgroundColor:color}">
-                <note-preview :note="note"  @remove="removeNote" @edit="editNote" />
+                <note-preview :note="note"  @remove="removeNote" />
             </li>
         </ul>
     `,
@@ -33,12 +33,6 @@ export default {
         mail(noteId) {
             console.log('mail ', noteId)
         },
-        pin(noteId) {
-            console.log('pin ', noteId)
-        },
-        editNote(id) {
-            console.log('editing note: ', id)
-        }
 
     },
     components: {

@@ -2,7 +2,6 @@
 import { utilService } from '../../../services/util-service.js'
 import { eventBus } from '../../../services/event-bus-service.js'
 
-// why only 4?
 
 export default {
     template: `
@@ -70,7 +69,7 @@ export default {
         reportType() {
             console.log(this[this.newNoteType])
             eventBus.$emit('noteAdd', this[this.newNoteType])
-            this.newNoteType = null
+                // this.newNoteType = null
         },
     },
 

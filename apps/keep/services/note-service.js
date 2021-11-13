@@ -49,7 +49,7 @@ function _createNotes() {
                         info: {
                             txt: "insert text here"
                         },
-                        backgroundColor: '#FBE8A6'
+                        backgroundColor: '#F4976C'
                     },
                     {
                         id: "n102",
@@ -59,14 +59,14 @@ function _createNotes() {
                             url: "apps/keep/imgs/JPEG-1.png",
                             txt: "add an image link here"
                         },
-                        backgroundColor: '#FBE8A6'
+                        backgroundColor: '#303C6C'
                     },
                     {
                         id: "n103",
                         isPinned: false,
                         type: "note-vid",
                         info: {
-                            url: "https://www.youtube.com/embed/g9bzrGBzSC4",
+                            url: "https://www.youtube.com/embed/Jnrh2iU1mRc",
                             txt: "add a video link here"
                         },
                         backgroundColor: '#FBE8A6'
@@ -82,7 +82,7 @@ function _createNotes() {
                                 { txt: "done", doneAt: true, id: '1' },
                             ]
                         },
-                        backgroundColor: '#FBE8A6'
+                        backgroundColor: '#303C6C'
                     },
                 ]
                 utilService.saveToStorage(NOTES_KEY, gNotes)

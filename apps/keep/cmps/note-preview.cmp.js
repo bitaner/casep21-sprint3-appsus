@@ -16,14 +16,16 @@ export default {
     },
     template: `
     <section v-if="note" class="note" v-bind:style="{backgroundColor:note.backgroundColor}">
-        <span v-bind:class="togglePinnedClass" class="note-pin">📍</span>
+        <span v-bind:class="togglePinnedClass" class="note-pin"><i class="fas fa-map-pin"></i></span>
         <component :note = "note" :is= "note.type" class="dynamic-note" @updateText="updateText"></component>
         <section class="note-btns-container">
-            <button @click="remove(note.id)" class="note-btn" title="Delete">🗑</button>
-            <button @click="duplicate()" class="note-btn" title="Duplicate">+1</button>
-            <button @click="pin(note.id)" class="note-btn" title="Pin">📌</button>
-            <button @click="mail(note.id)" class="note-btn" title="send as E-mail">📧</button>
-            <input ref="colorInput"  type="color"  v-model="color" @change="setBGCinput(note)" class="note-btn note-color" title="Set note color"  >
+            <button @click="remove(note.id)" class="note-btn" title="Delete"><i class="fas fa-trash-alt"></i></button>
+            <button @click="duplicate()" class="note-btn" title="Duplicate"><i class="fas fa-copy"></i></button>
+            <button @click="pin(note)" class="note-btn" title="Pin"><i class="fas fa-thumbtack"></i></button>
+            <button @click="mail(note.id)" class="note-btn" title="send as E-mail"><i class="fas fa-paper-plane"></i>
+
+</button>
+            <input ref="colorInput"  type="color"  v-model="color" @change="setBGCinput(note)" class="note-btn note-color" title="Set note color" >
         </section>
     </section> 
     `,
@@ -60,10 +62,10 @@ export default {
         mail(noteId) {
             console.log('mail ', noteId)
         },
-        pin(noteId) {
-            console.log('pin ', noteId)
+        pin(note) {
+            console.log('pin ', note)
             this.note.isPinned = !this.note.isPinned
-            eventBus.$emit('noteUpdate', this.note)
+            eventBus.$emit('noteUpdate', note)
         },
         duplicate() {
             eventBus.$emit('duplicate', this.note)
